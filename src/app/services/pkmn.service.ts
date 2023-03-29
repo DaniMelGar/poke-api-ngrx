@@ -8,13 +8,12 @@ import { environment } from './../../environments/environment';
 })
 export class PkmnService {
 
-  private url: string = 'https://pokeapi.co/api/v2/';
   private apiUrl = environment.API_URL;
 
   constructor(private http: HttpClient) { }
 
   getPkmnList(): Observable<any>{
-    return this.http.get(this.url + 'pokemon?limit=100000&offset=0');
+    return this.http.get(this.apiUrl + 'pokemon?limit=100000&offset=0');
   }
 
 }
