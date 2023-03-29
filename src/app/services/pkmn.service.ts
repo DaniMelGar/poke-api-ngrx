@@ -14,7 +14,7 @@ export class PkmnService {
   constructor(private http: HttpClient) { }
 
   getPkmnList(): Observable<any>{
-    return of(this.http.get(this.url + 'pokemon?limit=100000&offset=0'))
+    return this.http.get(this.url + 'pokemon?limit=100000&offset=0');
   }
 
 }
