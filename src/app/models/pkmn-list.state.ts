@@ -1,6 +1,6 @@
-import { PkmnModel } from "./pkmn.interface";
+import { PkmnModel,PkmnListModel } from "./pkmn.interface";
 
 export interface PkmnListState{
   loading: boolean,
-  pkmnList: ReadonlyArray<PkmnModel>;
+  pkmnList: Readonly<PkmnListModel>;
 }

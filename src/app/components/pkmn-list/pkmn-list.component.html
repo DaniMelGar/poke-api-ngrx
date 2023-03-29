@@ -1,8 +1,13 @@
 <div>
   <b>Loading... {{loading$ | async | json}}</b>
+</div><br><br>
+
+<div *ngIf="pkmnList$ | async as pkmnList">
+  <b>Número de Pokemons: {{pkmnList.count}}</b>
+  <div *ngFor="let pkmn of pkmnList.results">
+    <p>Nombre: {{pkmn?.name}}, Url: {{pkmn?.url}}</p>
+
+  </div>
 </div>
 
-<div *ngFor="let pkmn of pkmnList$ | async">
-  <p>Nombre: {{pkmn?.name}}</p>
-</div>
 
