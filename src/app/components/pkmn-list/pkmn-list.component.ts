@@ -27,3 +27,11 @@ export class PkmnListComponent {
   }
 
 }
+
+/*
+<div *ngFor="let pkmn of pkmnList$ | async">
+  <p>Id: {{pkmn?.id}}</p>
+  <p>Nombre: {{pkmn?.name}}</p>
+</div>
+*/
+

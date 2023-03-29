@@ -1,3 +1,5 @@
+import { PkmnListEffects } from './state/effects/pkmn-list.effects';
+import { ROOT_REDUCERS } from './state/app.state';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,9 +18,9 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([PkmnListEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
