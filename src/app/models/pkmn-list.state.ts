@@ -4,3 +4,8 @@ export interface PkmnListState{
   loading: boolean,
   pkmnList: Readonly<PkmnListModel>;
 }
+
+export interface PkmnState{
+  loading: boolean,
+  pkmn: Readonly<PkmnModel>;
+}

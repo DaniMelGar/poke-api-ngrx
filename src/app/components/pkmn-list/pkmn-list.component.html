@@ -1,13 +1,16 @@
-<div>
-  <b>Loading... {{loading$ | async | json}}</b>
+<div *ngIf="loading$ | async">
+  <!--<b>Loading... {{loading$ | async | json}}</b>-->
+  <b>Loading...</b>
 </div><br><br>
 
 <div *ngIf="pkmnList$ | async as pkmnList">
-  <b>Número de Pokemons: {{pkmnList.count}}</b>
-  <div *ngFor="let pkmn of pkmnList.results">
-    <p>Nombre: {{pkmn?.name}}, Url: {{pkmn?.url}}</p>
+  <b>Total number of Pokemon: {{pkmnList.count}}</b> <br/><br/>
 
+  <div *ngFor="let pkmn of pkmnList.results">
+
+    <button class="btn btn-danger btn-lg" click="searchPkmnByName(pkmn?.name)">#{{increment()}} {{pkmn?.name | uppercase}}</button><br/><br/>
   </div>
 </div>
+{{resetCont()}}
 
 

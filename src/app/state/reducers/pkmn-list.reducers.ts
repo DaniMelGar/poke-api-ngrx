@@ -13,5 +13,6 @@ export const pkmnListReducer = createReducer(
   }),
   on(loadedPkmnList, (state, { pkmnList }) => {
       return { ...state, loading: false, pkmnList }
-  })
+  }),
+
 );

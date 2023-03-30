@@ -17,6 +17,16 @@ export class PkmnListEffects {
     )
     );
 
+    loadPkmnByName$ = createEffect(() => this.actions$.pipe(
+      ofType('[Pkmn List] Load pkmn by name'),
+      mergeMap((action: any) => this.pkmnService.getPkmnByName(action.name)//TODO Retorna la data [...]
+          .pipe(
+              map(pkmn => ({ type: '[Pkmn List] Loaded pkmnList success', pkmn })),
+              catchError(() => EMPTY)
+          ))
+  )
+  );
+
     constructor(
         private actions$: Actions,
         private pkmnService: PkmnService

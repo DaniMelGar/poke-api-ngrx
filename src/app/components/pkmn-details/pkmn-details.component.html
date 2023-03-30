@@ -1,0 +1,5 @@
+<div *ngIf="pkmn$ | async as pkmn">
+  <p>Id: {{pkmn.id}}</p>
+  <p>Name: {{pkmn.name}}</p>
+  <p>ImgUrl: {{pkmn.sprites.front_default}}</p>
+</div>

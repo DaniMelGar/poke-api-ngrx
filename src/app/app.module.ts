@@ -9,18 +9,22 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PkmnListComponent } from './components/pkmn-list/pkmn-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { AppRoutingModule } from './app-routing.module';
+import { PkmnDetailsComponent } from './components/pkmn-details/pkmn-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PkmnListComponent
+    PkmnListComponent,
+    PkmnDetailsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([PkmnListEffects])
+    EffectsModule.forRoot([PkmnListEffects]),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
