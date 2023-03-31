@@ -8,7 +8,7 @@
 
   <div *ngFor="let pkmn of pkmnList.results">
 
-    <button class="btn btn-danger btn-lg" (onclick)="searchPkmnByName(pkmn?.name)">#{{increment()}} {{pkmn?.name | uppercase}}</button><br/><br/>
+    <button class="btn btn-danger btn-lg" (click)="searchPkmnByName(pkmn?.name)">#{{increment()}} {{pkmn?.name | uppercase}}</button><br/><br/>
   </div>
 </div>
 {{resetCont()}}

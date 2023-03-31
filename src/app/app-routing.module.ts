@@ -10,7 +10,7 @@ const routes: Routes = [
     component: PkmnListComponent
   },
   {
-    path: 'pkmn',
+    path: 'pkmn-details/:name',
     component: PkmnDetailsComponent
   }
 ];

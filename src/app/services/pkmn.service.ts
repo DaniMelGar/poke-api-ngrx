@@ -16,8 +16,25 @@ export class PkmnService {
     return this.http.get(this.apiUrl + 'pokemon?limit=100000&offset=0');
   }
 
-  getPkmnByName(name: string): Observable<any>{
+  /*getAll(): Observable<Pokemon[]> {
+    return this.http.get<any>(`${this.apiUrl}?limit=151`).pipe(
+      map(res => {
+        return res.results.map((pokemon: any, index: number) => ({
+          id: index + 1,
+          name: pokemon.name,
+          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
+        }));
+      })
+    );
+  }*/
+
+  /* getPkmnByName(name: string): Observable<any>{
     return this.http.get(this.apiUrl + 'pokemon/' + name);
+  } */
+
+  getPkmnByName(name: string): Observable<any>{
+    const url = `${this.apiUrl}pokemon/${name}`;
+    return this.http.get(url);
   }
 
 }

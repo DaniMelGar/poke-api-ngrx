@@ -3,6 +3,7 @@ import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/p
 import { Observable } from 'rxjs';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pkmn-list',
@@ -15,7 +16,7 @@ export class PkmnListComponent {
   pkmnList$: Observable<any> = new Observable()
   cont: number
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<any>, private router: Router) {
     this.cont = 1
   }
 
@@ -40,7 +41,7 @@ export class PkmnListComponent {
   }
 
   searchPkmnByName(name: string){
-    this.store.dispatch(loadPkmnByName({name}))
+    this.router.navigate(['/pkmn-details', name]);
   }
 
 }
