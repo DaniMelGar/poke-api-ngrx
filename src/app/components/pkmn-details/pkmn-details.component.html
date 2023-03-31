@@ -1,5 +1,10 @@
+<div *ngIf="loading$ | async">
+  <!--<b>Loading... {{loading$ | async | json}}</b>-->
+  <b>Loading...</b>
+</div><br><br>
+
 <div *ngIf="pkmn$ | async as pkmn">
-  <p>Id: {{pkmn.id}}</p>
-  <p>Name: {{pkmn.name}}</p>
-  <!--<p>ImgUrl: {{pkmn.sprites.front_default}}</p>-->
+  <p class="text-center"><strong>Id:</strong> {{pkmn.id}}</p>
+  <p class="text-center"><strong>Name:</strong> {{pkmn.name | uppercase}}</p>
+  <img class="center" src="{{pkmn.sprites.front_default}}"/>
 </div>

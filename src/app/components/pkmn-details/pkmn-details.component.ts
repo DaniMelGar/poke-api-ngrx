@@ -20,11 +20,11 @@ export class PkmnDetailsComponent {
 
   ngOnInit(): void {
 
-    const name = this.route.snapshot.paramMap.get('name');
+    this.name = this.route.snapshot.paramMap.get('name') as string;
 
     this.loading$ = this.store.select(selectPkmnLoading) //true, false
 
-    this.store.dispatch(loadPkmnByName({ name: this.name }))
+    this.store.dispatch(loadPkmnByName({ name: this.name}))
 
     this.pkmn$ = this.store.select(selectPkmn)
 
