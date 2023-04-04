@@ -1,6 +1,5 @@
-import { PkmnModel } from './../../models/pkmn.interface';
 import { loadPkmnByName, loadedPkmnByName } from '../actions/pkmn-list.actions';
-import { PkmnState } from '../../models/pkmn-list.state';
+import { PkmnState } from '../../models/pkmn.state';
 import { createReducer, on } from '@ngrx/store';
 
 

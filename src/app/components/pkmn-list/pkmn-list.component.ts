@@ -1,7 +1,7 @@
-import { loadPkmnList, loadPkmnByName } from './../../state/actions/pkmn-list.actions';
+import { loadPkmnList } from './../../state/actions/pkmn-list.actions';
 import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/pkmn-list.selectors';
-import { Observable } from 'rxjs';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Observable, of, take } from 'rxjs';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class PkmnListComponent {
 
-  loading$: Observable<boolean> = new Observable()
-  pkmnList$: Observable<any> = new Observable()
+  loading$: Observable<boolean> = of(false)
+  pkmnList$: Observable<any> = of([])
   cont: number
 
   constructor(private store: Store<any>, private router: Router) {
@@ -36,11 +36,11 @@ export class PkmnListComponent {
     return this.cont++
   }
 
-  resetCont(){
+  resetCont(): void{
     this.cont = 1
   }
 
-  searchPkmnByName(name: string){
+  searchPkmnByName(name: string): void{
     this.router.navigate(['/pkmn-details', name]);
   }
 

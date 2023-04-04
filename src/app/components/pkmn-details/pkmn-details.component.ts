@@ -1,5 +1,5 @@
 import { loadPkmnByName } from './../../state/actions/pkmn-list.actions';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectPkmnLoading, selectPkmn } from './../../state/selectors/pkmn-list.selectors';
@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PkmnDetailsComponent {
 
-  loading$: Observable<boolean> = new Observable()
-  pkmn$: Observable<any> = new Observable()
+  loading$: Observable<boolean> = of(false)
+  pkmn$: Observable<any> = of(null)
   name: string = ""
 
   constructor(private store: Store<any>, private route: ActivatedRoute){}

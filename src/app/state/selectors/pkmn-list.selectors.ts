@@ -1,4 +1,4 @@
-import { PkmnListState, PkmnState } from './../../models/pkmn-list.state';
+import { PkmnListState, PkmnState } from '../../models/pkmn.state';
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
 

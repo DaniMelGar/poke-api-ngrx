@@ -1,6 +1,6 @@
 import { pkmnReducer } from './reducers/pkmn.reducers';
 import { pkmnListReducer} from './reducers/pkmn-list.reducers';
-import { PkmnListState, PkmnState } from './../models/pkmn-list.state';
+import { PkmnListState, PkmnState } from '../models/pkmn.state';
 import { ActionReducerMap } from "@ngrx/store";
 
 export interface AppState {
