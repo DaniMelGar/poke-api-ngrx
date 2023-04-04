@@ -2,6 +2,9 @@ export interface PkmnModel{
   id: number;
   name: string;
   imgUrl: string;
+  types: string[];
+  moves: string[];
+  stats: string[];
 }
 
 export interface PkmnListModel{

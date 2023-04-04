@@ -6,5 +6,12 @@
 <div *ngIf="pkmn$ | async as pkmn">
   <p class="text-center"><strong>Id:</strong> {{pkmn.id}}</p>
   <p class="text-center"><strong>Name:</strong> {{pkmn.name | uppercase}}</p>
-  <img class="center" src="{{pkmn.sprites.front_default}}"/>
+  <img appImgError class="center" src="{{pkmn.sprites.front_default}}"/>
+  <br/>
+
+  <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types><br>
+
+  <app-pkmn-details-stats [stats]="pkmn.stats"></app-pkmn-details-stats><br/>
+
+
 </div>

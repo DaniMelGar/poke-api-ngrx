@@ -11,12 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { PkmnDetailsComponent } from './components/pkmn-details/pkmn-details.component';
+import { PkmnDetailsTypesComponent } from './components/pkmn-details/pkmn-details-types/pkmn-details-types.component';
+import { PkmnDetailsStatsComponent } from './components/pkmn-details/pkmn-details-stats/pkmn-details-stats.component';
+import { ImgErrorDirective } from './directives/img-error.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PkmnListComponent,
     PkmnDetailsComponent,
+    PkmnDetailsTypesComponent,
+    PkmnDetailsStatsComponent,
+    ImgErrorDirective,
   ],
   imports: [
     BrowserModule,
