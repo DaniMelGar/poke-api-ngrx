@@ -8,3 +8,5 @@ import { Component, Input } from '@angular/core';
 export class PkmnDetailsTypesComponent {
   @Input() types: any;
 }
+
+//<img *ngIf="type.type.name | titlecase as type"  style="padding-left: 20px;" src='{{ "https://archives.bulbagarden.net/media/upload/d/d5/" + type + "IC_Colo.png" }}'/>

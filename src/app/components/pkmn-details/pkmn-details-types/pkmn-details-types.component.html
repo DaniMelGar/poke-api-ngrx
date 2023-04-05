@@ -1,4 +1,5 @@
-<h3 class="text-center">Types:</h3><br/>
+<h3 class="text-start ms-5">TYPES:</h3><br/>
 <div *ngFor="let type of types">
-  <p class="text-center"><strong>Type {{type.slot}}:</strong> {{type.type.name | uppercase}} </p>
+  <p class="text-start ms-5"><strong>TYPE {{type.slot}}:</strong>
+    <img style="padding-left: 20px;" appImgIconTypeError appImgIconType [type]="type.type.name" /> </p>
 </div>

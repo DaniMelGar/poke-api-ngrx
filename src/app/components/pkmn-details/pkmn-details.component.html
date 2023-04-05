@@ -4,9 +4,9 @@
 </div><br><br>
 
 <div *ngIf="pkmn$ | async as pkmn">
-  <p class="text-center"><strong>Id:</strong> {{pkmn.id}}</p>
-  <p class="text-center"><strong>Name:</strong> {{pkmn.name | uppercase}}</p>
-  <img appImgError class="center" src="{{pkmn.sprites.front_default}}"/>
+  <p class="text-start ms-5"><strong>ID:</strong> {{pkmn.id}}</p>
+  <p class="text-start ms-5"><strong>NAME:</strong> {{pkmn.name | uppercase}}</p>
+  <img appImgError class="start ms-5" style="width: 150px;heigth: 150px;" src="{{pkmn.sprites.front_default}}"/>
   <br/>
 
   <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types><br>
