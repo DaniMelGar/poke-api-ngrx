@@ -4,14 +4,20 @@
 </div><br><br>
 
 <div *ngIf="pkmn$ | async as pkmn">
-  <p class="text-start ms-5"><strong>ID:</strong> {{pkmn.id}}</p>
-  <p class="text-start ms-5"><strong>NAME:</strong> {{pkmn.name | uppercase}}</p>
-  <img appImgError class="start ms-5" style="width: 150px;heigth: 150px;" src="{{pkmn.sprites.front_default}}"/>
-  <br/>
+  <div class="details-container">
+    <div class="pkmk-details">
+      <h3>GENERAL:</h3><br>
+      <p><strong>ID:</strong> {{pkmn.id}}</p>
+      <p><strong>NAME:</strong> {{pkmn.name | uppercase}}</p><br>
+      <img appImgError style="width: 150px;heigth: 150px;" src="{{pkmn.sprites.front_default}}"/>
+      <br/>
+    </div>
 
-  <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types><br>
+    <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types><br>
 
-  <app-pkmn-details-stats [stats]="pkmn.stats"></app-pkmn-details-stats><br/>
+    <app-pkmn-details-stats [stats]="pkmn.stats"></app-pkmn-details-stats><br/>
+  </div>
+
 
 
 </div>
