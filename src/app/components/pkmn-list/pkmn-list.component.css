@@ -1,0 +1,7 @@
+.pknm-list{
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: center;
+}
+

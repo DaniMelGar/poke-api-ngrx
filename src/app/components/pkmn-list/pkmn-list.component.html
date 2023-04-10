@@ -6,10 +6,13 @@
 <div *ngIf="pkmnList$ | async as pkmnList">
   <h3 class="ms-5">Total number of Pokemon: {{pkmnList.count}}</h3><br/><br/>
 
-  <div *ngFor="let pkmn of pkmnList.results">
+  <div class="pknm-list">
+    <div class="pkmn-item" *ngFor="let pkmn of pkmnList.results">
 
-    <button class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{increment()}} {{pkmn?.name | uppercase}}</button><br/><br/>
+      <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{increment()}} {{pkmn?.name | uppercase}}</button><br/><br/>
+    </div>
   </div>
+
 </div>
 {{resetCont()}}
 
