@@ -16,6 +16,8 @@ import { PkmnDetailsStatsComponent } from './components/pkmn-details/pkmn-detail
 import { ImgErrorDirective } from './directives/img-error.directive';
 import { ImgIconTypeDirective } from './directives/img-icon-type.directive';
 import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.directive';
+import { PaginationPkmnListComponent } from './components/pkmn-list/pagination-pkmn-list/pagination-pkmn-list.component';
+import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
     ImgErrorDirective,
     ImgIconTypeDirective,
     ImgIconTypeErrorDirective,
+    PaginationPkmnListComponent,
+    PagePkmnListDirective,
   ],
   imports: [
     BrowserModule,

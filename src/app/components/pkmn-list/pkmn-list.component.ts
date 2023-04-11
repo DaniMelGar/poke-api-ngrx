@@ -3,7 +3,8 @@ import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/p
 import { Observable, of, take } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { offset } from '@popperjs/core';
 
 @Component({
   selector: 'app-pkmn-list',
@@ -15,16 +16,18 @@ export class PkmnListComponent {
   loading$: Observable<boolean> = of(false)
   pkmnList$: Observable<any> = of([])
   cont: number
+  offset : any
 
-  constructor(private store: Store<any>, private router: Router) {
+  constructor(private store: Store<any>, private router: Router, private route: ActivatedRoute) {
     this.cont = 1
+    this.offset = route.snapshot.paramMap.get('offset')
   }
 
   ngOnInit(): void {
 
     this.loading$ = this.store.select(selectPkmnListLoading) //true, false
 
-    this.store.dispatch(loadPkmnList())
+    this.store.dispatch(loadPkmnList(offset as any))
 
     this.pkmnList$ = this.store.select(selectPkmnList)
 

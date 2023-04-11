@@ -9,7 +9,7 @@ export class PkmnListEffects {
 
     loadPkmnList$ = createEffect(() => this.actions$.pipe(
         ofType('[Pkmn List] Load pkmnList'),
-        mergeMap(() => this.pkmnService.getPkmnList()
+        mergeMap((action: any) => this.pkmnService.getPkmnListPag(action.offset)
             .pipe(
                 map(pkmnList => ({ type: '[Pkmn List] Loaded pkmnList success', pkmnList })),
                 catchError(() => EMPTY)

@@ -16,8 +16,8 @@ export class PkmnService {
     return this.http.get(this.apiUrl + 'pokemon?limit=100000&offset=0');
   }
 
-  getPkmnListPag(offset: string): Observable<any>{
-    return this.http.get(`${this.apiUrl}pokemon?limit=20&offset=${offset}`);
+  getPkmnListPag(offset: any): Observable<any>{
+    return this.http.get(`${this.apiUrl}pokemon?limit=21&offset=${offset}`);
   }
 
   /*getAll(): Observable<Pokemon[]> {

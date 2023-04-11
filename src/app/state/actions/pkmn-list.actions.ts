@@ -2,7 +2,8 @@ import { PkmnModel, PkmnListModel } from './../../models/pkmn.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadPkmnList = createAction(
-  '[Pkmn List] Load pkmnList'
+  '[Pkmn List] Load pkmnList',
+  props<{ offset: any }>()
 );
 
 export const loadedPkmnList = createAction(
