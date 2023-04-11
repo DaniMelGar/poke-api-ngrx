@@ -16,6 +16,8 @@ import { PkmnDetailsStatsComponent } from './components/pkmn-details/pkmn-detail
 import { ImgErrorDirective } from './directives/img-error.directive';
 import { ImgIconTypeDirective } from './directives/img-icon-type.directive';
 import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.directive';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
     PkmnDetailsComponent,
     PkmnDetailsTypesComponent,
     PkmnDetailsStatsComponent,
+    LoginComponent,
     ImgErrorDirective,
     ImgIconTypeDirective,
     ImgIconTypeErrorDirective,
@@ -31,12 +34,13 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([PkmnListEffects]),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
