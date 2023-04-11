@@ -4,7 +4,7 @@ import { Observable, of, take } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
-import { offset } from '@popperjs/core';
+//import { offset } from '@popperjs/core';
 
 @Component({
   selector: 'app-pkmn-list',
@@ -27,7 +27,7 @@ export class PkmnListComponent {
 
     this.loading$ = this.store.select(selectPkmnListLoading) //true, false
 
-    this.store.dispatch(loadPkmnList(offset as any))
+    this.store.dispatch(loadPkmnList(this.offset))
 
     this.pkmnList$ = this.store.select(selectPkmnList)
 

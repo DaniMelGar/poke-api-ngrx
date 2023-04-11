@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable,of } from 'rxjs';
+import { Observable,map,of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
+import { FetchedPkmnListModel, PkmnListModel, PkmnModel } from '../models/pkmn.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,40 @@ export class PkmnService {
 
   constructor(private http: HttpClient) { }
 
-  getPkmnList(): Observable<any>{
+  /*getPkmnList(): Observable<any>{
     return this.http.get(this.apiUrl + 'pokemon?limit=100000&offset=0');
+  }*/
+
+  getPkmnList(): Observable<PkmnListModel[]>{
+    return this.http.get<FetchedPkmnListModel>(this.apiUrl + 'pokemon?limit=100000&offset=0')
+    .pipe(
+      map( this.transformPkmnListIntoPkmn )
+    )
   }
 
-  getPkmnListPag(offset: any): Observable<any>{
-    return this.http.get(`${this.apiUrl}pokemon?limit=21&offset=${offset}`);
+  private transformPkmnListIntoPkmn(resp: FetchedPkmnListModel): PkmnListModel[]{
+
+    return resp.results.map(
+      (pkmn: any) =>{
+        const urlArr = pkmn.url.split('/');
+        const id = urlArr[6];
+        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+        return{
+          id,
+          imgUrl,
+          name: pkmn.name,
+        }
+      }
+    )
+
+  }
+
+  getPkmnListPag(offset: any): Observable<PkmnListModel[]>{
+    return this.http.get<FetchedPkmnListModel>(`${this.apiUrl}pokemon?limit=21&offset=${offset}`)
+    .pipe(
+      map( this.transformPkmnListIntoPkmn )
+    );
   }
 
   /*getAll(): Observable<Pokemon[]> {
