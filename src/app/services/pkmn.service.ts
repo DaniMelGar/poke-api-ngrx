@@ -43,7 +43,7 @@ export class PkmnService {
   }
 
   getPkmnListPag(offset: any): Observable<PkmnListModel[]>{
-    return this.http.get<FetchedPkmnListModel>(`${this.apiUrl}pokemon?limit=21&offset=${offset}`)
+    return this.http.get<FetchedPkmnListModel>(`${this.apiUrl}pokemon?limit=${environment.pkmnPageLimit}&offset=${offset}`)
     .pipe(
       map( this.transformPkmnListIntoPkmn )
     );

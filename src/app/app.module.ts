@@ -18,6 +18,8 @@ import { ImgIconTypeDirective } from './directives/img-icon-type.directive';
 import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.directive';
 import { PaginationPkmnListComponent } from './components/pkmn-list/pagination-pkmn-list/pagination-pkmn-list.component';
 import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
+import { PagePkmnListItemActiveDirective } from './directives/page-pkmn-list-item-active.directive';
+import { PaginationReducedPipe } from './pipes/pagination-reduced.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
     ImgIconTypeErrorDirective,
     PaginationPkmnListComponent,
     PagePkmnListDirective,
+    PagePkmnListItemActiveDirective,
+    PaginationReducedPipe,
   ],
   imports: [
     BrowserModule,

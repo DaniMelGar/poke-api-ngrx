@@ -3,8 +3,19 @@
     <li class="page-item">
       <a class="page-link" appPagePkmnList [offset]="offset" [action]='"previous"'>Previous</a>
     </li>
+    <li appPagePkmnListItemActive [offset]="offset" [page]="1">
+      <a class="page-link" appPagePkmnList [offset]="offset" [action]='"first"'>1</a>
+    </li>
+    <div *ngFor="let page of pages | paginationReduced: actualPage">
+      <li  appPagePkmnListItemActive [offset]="offset" [page]="page">
+        <a class="page-link" appPagePkmnList [offset]="page" [action]='"number"'>{{page}}</a>
+      </li>
+    </div>
+    <li appPagePkmnListItemActive [offset]="offset" [page]="pages.length">
+      <a class="page-link" appPagePkmnList [offset]="offset" [action]='"last"'>{{pages.length}}</a>
+    </li>
     <li class="page-item">
-      <a class="page-link" href="#" appPagePkmnList [offset]="offset" [action]='"next"'>Next</a>
+      <a class="page-link" appPagePkmnList [offset]="offset" [action]='"next"'>Next</a>
     </li>
   </ul>
 </nav>
