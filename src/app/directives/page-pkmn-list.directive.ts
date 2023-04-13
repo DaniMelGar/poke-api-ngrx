@@ -15,6 +15,7 @@ export class PagePkmnListDirective {
   @HostListener('click')
   onClick(): void{
     const element = this.elementRef.nativeElement
+
     if (this.action === 'next') {
       element.href = `/pkmn-list?offset=${+this.offset + environment.pkmnPageLimit}`;
       // const offset = element.href
@@ -30,4 +31,5 @@ export class PagePkmnListDirective {
       element.href = `/pkmn-list?offset=${environment.totalNumberOfPkmn - environment.pkmnPageLimit + 1}`;
     }
   }
+
 }

@@ -20,6 +20,7 @@ import { PaginationPkmnListComponent } from './components/pkmn-list/pagination-p
 import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
 import { PagePkmnListItemActiveDirective } from './directives/page-pkmn-list-item-active.directive';
 import { PaginationReducedPipe } from './pipes/pagination-reduced.pipe';
+import { PaginationPrevNextDisabledDirective } from './directives/pagination-prev-next-disabled.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PaginationReducedPipe } from './pipes/pagination-reduced.pipe';
     PagePkmnListDirective,
     PagePkmnListItemActiveDirective,
     PaginationReducedPipe,
+    PaginationPrevNextDisabledDirective,
   ],
   imports: [
     BrowserModule,
