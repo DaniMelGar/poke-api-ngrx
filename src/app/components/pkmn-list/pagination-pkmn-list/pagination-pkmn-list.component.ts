@@ -25,7 +25,7 @@ export class PaginationPkmnListComponent {
       this.offset = params['offset'];
     });
 
-    this.pages = this.calcPagination(1279) //HARDCODE
+    this.pages = this.calcPagination(environment.totalNumberOfPkmn) //HARDCODE
     this.actualPage = this.calcActualPage(this.offset)
 
   }

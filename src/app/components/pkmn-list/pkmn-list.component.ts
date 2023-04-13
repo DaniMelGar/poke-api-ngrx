@@ -1,10 +1,11 @@
+import { environment } from './../../../environments/environment';
 import { loadPkmnList } from './../../state/actions/pkmn-list.actions';
 import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/pkmn-list.selectors';
-import { Observable, Subject, of, take, takeUntil } from 'rxjs';
+import { Observable, Subject, of, takeUntil } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute, Router } from '@angular/router';
-//import { offset } from '@popperjs/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-pkmn-list',
@@ -15,10 +16,11 @@ export class PkmnListComponent {
 
   loading$: Observable<boolean> = of(false)
   pkmnList$: Observable<any> = of([])
-  offset : any
+  offset: any
   private unsubscribe$ = new Subject<void>();
+  totalNumberOfPkmn: number = 0
 
-  constructor(private store: Store<any>, private router: Router, private aroute: ActivatedRoute) {
+  constructor(private store: Store<any>, private aroute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -33,12 +35,12 @@ export class PkmnListComponent {
         this.pkmnList$ = this.store.select(selectPkmnList)
       });
 
+      this.totalNumberOfPkmn = environment.totalNumberOfPkmn
+
   }
 
 
-  searchPkmnByName(name: string): void{
-    this.router.navigate(['/pkmn-details', name]);
-  }
+
 
 }
 

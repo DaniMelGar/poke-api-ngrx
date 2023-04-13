@@ -21,6 +21,10 @@ import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
 import { PagePkmnListItemActiveDirective } from './directives/page-pkmn-list-item-active.directive';
 import { PaginationReducedPipe } from './pipes/pagination-reduced.pipe';
 import { PaginationPrevNextDisabledDirective } from './directives/pagination-prev-next-disabled.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { PaginationPrevNextDisabledDirective } from './directives/pagination-pre
     PagePkmnListItemActiveDirective,
     PaginationReducedPipe,
     PaginationPrevNextDisabledDirective,
+    PkmnCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,10 @@ import { PaginationPrevNextDisabledDirective } from './directives/pagination-pre
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([PkmnListEffects]),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
