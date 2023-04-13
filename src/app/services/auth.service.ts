@@ -1,42 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
+import { ApiService } from './api.service';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this._isLoggedIn$.asObservable();
+
+  constructor(private apiService: ApiService) {
+    const token = localStorage.getItem('auth_token');
+    //Do not verify expiration
+    this._isLoggedIn$.next(!!token);
+  }
 
   login(email: string, password: string) {
-    return this.http
-      .post<User>('/api/login', { email, password })
-      .do((res: any) => this.setSession(res))
-      .shareReplay();
-  }
-
-  private setSession(authResult: any) {
-    const expiresAt = moment().add(authResult.idToken, 'second');
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-  }
-
-  logout() {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-  }
-
-  public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
-  }
-
-  isLoggedOut() {
-    return !this.isLoggedIn();
-  }
-
-  getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration!);
-    return moment(expiresAt);
+    return this.apiService.login(email, password).pipe(
+      tap((response: any) => {
+        this._isLoggedIn$.next(true);
+        localStorage.setItem('auth_token', response.token);
+        console.log(response.token);
+      })
+    );
   }
 }

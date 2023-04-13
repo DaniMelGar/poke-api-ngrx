@@ -21,12 +21,12 @@ export class LoginComponent {
     });
   }
   login() {
-    const val = this.form.value;
-    if (val.email && val.password) {
-      this.authService.login(val.email, val.password).subscribe(() => {
-        console.log('User is logged in');
-        this.router.navigateByUrl('/pkmn-list');
-      });
+    if (this.form.invalid) {
+      return;
     }
+    const val = this.form.value;
+    this.authService.login(val.email, val.password).subscribe((response) => {
+      this.router.navigateByUrl('/pkmn-list');
+    });
   }
 }
