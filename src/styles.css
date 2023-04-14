@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: pokemon-hollow;
+  src: url('assets/font/pokemon-hollow.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: pokemon-solid;
+  src: url('assets/font/pokemon-solid.ttf') format('truetype');
+}

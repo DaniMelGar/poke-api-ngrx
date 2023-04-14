@@ -1,25 +1,24 @@
-<body>
-  <div *ngIf="loading$ | async">
-    <!--<b>Loading... {{loading$ | async | json}}</b>-->
-    <b>Loading...</b>
-  </div><br><br>
+<div *ngIf="loading$ | async">
+  <!--<b>Loading... {{loading$ | async | json}}</b>-->
+  <b>Loading...</b>
+</div><br><br>
 
-  <div *ngIf="pkmnList$ | async as pkmnList">
-    <h3 class="text-center">Total number of Pokemon: {{totalNumberOfPkmn}}</h3><br/><br/>
+<div *ngIf="pkmnList$ | async as pkmnList">
+  <h1 class="text-center" style="font-family: 'pokemon-solid'; letter-spacing: 2px;">Total number of Pokémon: {{totalNumberOfPkmn}}</h1><br/><br/>
 
-    <div class="pknm-list">
-      <div class="pkmn-item" *ngFor="let pkmn of pkmnList">
+  <div class="pknm-list">
+    <div class="pkmn-item" *ngFor="let pkmn of pkmnList">
 
-        <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
-        <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
-        <!-- <img appImgError style="width: 100px;height: 100px;" src="{{pkmn?.imgUrl}}"/> -->
-      </div>
+      <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
+      <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
+      <!-- <img appImgError style="width: 100px;height: 100px;" src="{{pkmn?.imgUrl}}"/> -->
     </div>
-
-    <app-pagination-pkmn-list></app-pagination-pkmn-list>
-
   </div>
-</body>
+
+  <app-pagination-pkmn-list></app-pagination-pkmn-list>
+
+</div>
+
 
 
 

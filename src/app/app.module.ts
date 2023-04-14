@@ -25,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.component';
+import { NavVarComponent } from './components/nav-var/nav-var.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.co
     PaginationReducedPipe,
     PaginationPrevNextDisabledDirective,
     PkmnCardComponent,
+    NavVarComponent,
   ],
   imports: [
     BrowserModule,
