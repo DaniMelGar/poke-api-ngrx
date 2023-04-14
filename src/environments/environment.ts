@@ -1,5 +1,7 @@
 export const environment = {
   production: false,
   API_URL: 'https://pokeapi.co/api/v2/',
-  urlPoisonIcon: 'https://archives.bulbagarden.net/media/upload/6/66/PoisonIC_Colo.png'
+  urlPoisonIcon: 'https://archives.bulbagarden.net/media/upload/6/66/PoisonIC_Colo.png',
+  pkmnPageLimit: 20,
+  totalNumberOfPkmn: 1279
 };

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg " style="background-color: 	#ee1515;--bs-navbar-color: #ffffff;--bs-navbar-brand-color: #ffffff;
+--bs-navbar-active-color:#000000; border-bottom: 1px solid black;">
+  <div class="container-fluid">
+    <img style="width: 7rem;height: 2.5rem;margin-left: 1rem;" src="https://th.bing.com/th/id/R.ddd5084dff8d7606019645f62c1712c6?rik=RJm8gtkd41am8Q&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fpokemon-logo-png-pokemon-logo-png-2000.png&ehk=%2bFdpvqx7Vk1jcWsSaxVIqArQSByK89fRtNQoRFktAhY%3d&risl=&pid=ImgRaw&r=0"/>
+    <a class="navbar-brand" href="#" style="margin-left: 4rem;">PkmnAPI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li> -->
+        <li class="nav-item" style="margin-left: 1rem;">
+          <a class="nav-link" [routerLink]="['/pkmn-list']" [queryParams]="{ offset: 0}">Pkmn List</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li> -->
+      </ul>
+      <form class="d-flex" role="search" style="margin-right: 1rem;">
+        <input class="form-control me-2 " type="search" placeholder="Search by name" aria-label="Search">
+        <button class="btn btn btn-light" type="submit" >Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+<!-- <mat-card>
+
+  <mat-card-header>
+
+    <mat-card-title>{{pkmn.id}}</mat-card-title>
+    <mat-card-subtitle>{{pkmn.name}}</mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-actions>
+    <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/>
+  </mat-card-actions>
+
+</mat-card> -->
+
+<div class="card text-center" style="width: 18rem; height: 24rem;  margin: 2rem;padding: 1rem;border-radius:30px;box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68);
+-webkit-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68); -moz-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68);" appPkmnCardClickable [name]="pkmn.name">
+  <img appImgError class="card-img-top" src={{pkmn.imgUrl}} >
+  <div class="card-body ">
+    <h5 class="card-title" >#{{pkmn.id}} {{pkmn.name |uppercase}}</h5>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+    <!-- <button class="btn btn-danger btn-lg" (click)="searchPkmnByName(pkmn?.name)" style="margin-top: 1rem;">DETAILS</button><br/><br/> -->
+  </div>
+</div>

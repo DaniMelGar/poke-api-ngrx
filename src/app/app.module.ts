@@ -16,6 +16,17 @@ import { PkmnDetailsStatsComponent } from './components/pkmn-details/pkmn-detail
 import { ImgErrorDirective } from './directives/img-error.directive';
 import { ImgIconTypeDirective } from './directives/img-icon-type.directive';
 import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.directive';
+import { PaginationPkmnListComponent } from './components/pkmn-list/pagination-pkmn-list/pagination-pkmn-list.component';
+import { PagePkmnListDirective } from './directives/page-pkmn-list.directive';
+import { PagePkmnListItemActiveDirective } from './directives/page-pkmn-list-item-active.directive';
+import { PaginationReducedPipe } from './pipes/pagination-reduced.pipe';
+import { PaginationPrevNextDisabledDirective } from './directives/pagination-prev-next-disabled.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.component';
+import { NavVarComponent } from './components/nav-var/nav-var.component';
+import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +38,14 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
     ImgErrorDirective,
     ImgIconTypeDirective,
     ImgIconTypeErrorDirective,
+    PaginationPkmnListComponent,
+    PagePkmnListDirective,
+    PagePkmnListItemActiveDirective,
+    PaginationReducedPipe,
+    PaginationPrevNextDisabledDirective,
+    PkmnCardComponent,
+    NavVarComponent,
+    PkmnCardClickableDirective,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +53,10 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([PkmnListEffects]),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 export interface PkmnModel{
-  id: number;
+  id: string;
   name: string;
   imgUrl: string;
   types: string[];
@@ -7,9 +7,15 @@ export interface PkmnModel{
   stats: string[];
 }
 
-export interface PkmnListModel{
+export interface FetchedPkmnListModel{
   count: number;
   next: number;
   previous: number;
   results: string[];
+}
+
+export interface PkmnListModel{
+  id: string;
+  name: string;
+  imgUrl: string;
 }

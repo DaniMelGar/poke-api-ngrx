@@ -1,9 +1,11 @@
+import { environment } from './../../../environments/environment';
 import { loadPkmnList } from './../../state/actions/pkmn-list.actions';
 import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/pkmn-list.selectors';
-import { Observable, of, take } from 'rxjs';
+import { Observable, Subject, of, takeUntil } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-pkmn-list',
@@ -14,35 +16,31 @@ export class PkmnListComponent {
 
   loading$: Observable<boolean> = of(false)
   pkmnList$: Observable<any> = of([])
-  cont: number
+  offset: any
+  private unsubscribe$ = new Subject<void>();
+  totalNumberOfPkmn: number = 0
 
-  constructor(private store: Store<any>, private router: Router) {
-    this.cont = 1
+  constructor(private store: Store<any>, private aroute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
 
     this.loading$ = this.store.select(selectPkmnListLoading) //true, false
 
-    this.store.dispatch(loadPkmnList())
+    this.aroute.queryParams.pipe(
+      takeUntil(this.unsubscribe$)
+      ).subscribe(params => {
+        const offset = params['offset'];
+        this.store.dispatch(loadPkmnList({offset: offset}))
+        this.pkmnList$ = this.store.select(selectPkmnList)
+      });
 
-    this.pkmnList$ = this.store.select(selectPkmnList)
-
-    this.resetCont()
+      this.totalNumberOfPkmn = environment.totalNumberOfPkmn
 
   }
 
-  increment(): number{
-    return this.cont++
-  }
 
-  resetCont(): void{
-    this.cont = 1
-  }
 
-  searchPkmnByName(name: string): void{
-    this.router.navigate(['/pkmn-details', name]);
-  }
 
 }
 
