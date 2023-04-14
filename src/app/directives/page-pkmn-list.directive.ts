@@ -1,5 +1,4 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 
 @Directive({
@@ -10,7 +9,7 @@ export class PagePkmnListDirective {
   @Input() offset: number = 0
   @Input() action: any
 
-  constructor(private elementRef: ElementRef, private router: Router) { }
+  constructor(private elementRef: ElementRef) { }
 
   @HostListener('click')
   onClick(): void{
@@ -18,8 +17,6 @@ export class PagePkmnListDirective {
 
     if (this.action === 'next') {
       element.href = `/pkmn-list?offset=${+this.offset + environment.pkmnPageLimit}`;
-      // const offset = element.href
-      // this.router.navigate(['/pkmn-list'], { queryParams: { offset } });
 
     } else if (this.action === 'previous') {
       element.href = `/pkmn-list?offset=${+this.offset - environment.pkmnPageLimit}`;

@@ -1,12 +1,12 @@
-<nav aria-label="...">
+<nav aria-label="..." >
   <ul class="pagination justify-content-center"
-  style="--bs-pagination-active-bg: #dc3545;--bs-pagination-active-border-color: #dc3545; --bs-pagination-hover-bg: #f56e7b;
+  style="--bs-pagination-active-bg: #ee1515;--bs-pagination-active-border-color: #ee1515; --bs-pagination-hover-bg: #f56e7b;
   --bs-pagination-hover-color: #ffffff ; --bs-pagination-hover-border-color:#f56e7b; --bs-pagination-color: #000000; ">
     <li class="page-item" appPaginationPrevNextDisabled [actualPage]="actualPage" [lastPage]="pages.length" [action]='"previous"'
-    style="--bs-pagination-color: #dc3545;">
+    style="--bs-pagination-color: #ee1515;">
       <a class="page-link" appPagePkmnList [offset]="offset" [action]='"previous"'>Previous</a>
     </li>
-    <li appPagePkmnListItemActive [offset]="offset" [page]="1" style="--bs-pagination-color: #dc3545;">
+    <li appPagePkmnListItemActive [offset]="offset" [page]="1" style="--bs-pagination-color: #ee1515;">
       <a class="page-link" appPagePkmnList [offset]="offset" [action]='"first"'>1</a>
     </li>
     <div *ngFor="let page of pages | paginationReduced: actualPage">
@@ -14,11 +14,11 @@
         <a class="page-link" appPagePkmnList [offset]="page" [action]='"number"'>{{page}}</a>
       </li>
     </div>
-    <li appPagePkmnListItemActive [offset]="offset" [page]="pages.length" style="--bs-pagination-color: #dc3545;">
+    <li appPagePkmnListItemActive [offset]="offset" [page]="pages.length" style="--bs-pagination-color: #ee1515;">
       <a class="page-link" appPagePkmnList [offset]="offset" [action]='"last"'>{{pages.length}}</a>
     </li>
     <li class="page-item" appPaginationPrevNextDisabled [actualPage]="actualPage" [lastPage]="pages.length" [action]='"next"'
-    style="--bs-pagination-color: #dc3545;">
+    style="--bs-pagination-color: #ee1515;">
       <a class="page-link" appPagePkmnList [offset]="offset" [action]='"next"'>Next</a>
     </li>
   </ul>
