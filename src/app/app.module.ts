@@ -2,7 +2,6 @@ import { PkmnListEffects } from './state/effects/pkmn-list.effects';
 import { ROOT_REDUCERS } from './state/app.state';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -19,6 +18,11 @@ import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.dire
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
+//Materials
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { AuthInterceptorProvider } from './services/auth.interceptor';
     ImgIconTypeErrorDirective,
   ],
   imports: [
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -40,6 +47,7 @@ import { AuthInterceptorProvider } from './services/auth.interceptor';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([PkmnListEffects]),
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
