@@ -4,7 +4,11 @@
 </div><br><br>
 
 <div *ngIf="pkmnList$ | async as pkmnList">
-  <h3 class="ms-5">Total number of Pokemon: {{pkmnList.count}}</h3><br/><br/>
+  <h3 class="ms-5">Total number of Pokemon: {{pkmnList.count}}</h3><br/>
+
+  <button class="ms-5 button button-primary" (click)="verify()">Verify JWT</button><br/><br>
+
+
 
   <div class="pknm-list">
     <div class="pkmn-item" *ngFor="let pkmn of pkmnList.results">

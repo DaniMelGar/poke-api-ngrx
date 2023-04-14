@@ -18,6 +18,7 @@ import { ImgIconTypeDirective } from './directives/img-icon-type.directive';
 import { ImgIconTypeErrorDirective } from './directives/img-icon-type-error.directive';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptorProvider } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EffectsModule.forRoot([PkmnListEffects]),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

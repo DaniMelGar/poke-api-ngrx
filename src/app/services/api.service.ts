@@ -13,4 +13,8 @@ export class ApiService {
   login(email: string, password: string) {
     return this.http.post(this.BE + 'token', { email, password });
   }
+
+  verify() {
+    return this.http.get(this.BE + 'verify');
+  }
 }
