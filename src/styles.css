@@ -8,3 +8,6 @@
   font-family: pokemon-solid;
   src: url('assets/font/pokemon-solid.ttf') format('truetype');
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
