@@ -26,7 +26,7 @@ export class LoginComponent {
     }
     const val = this.form.value;
     this.authService.login(val.email, val.password).subscribe((response) => {
-      this.router.navigateByUrl('/pkmn-list');
+      this.router.navigateByUrl('/pkmn-list?offset=0');
     });
   }
 }
