@@ -4,7 +4,7 @@ export interface PkmnModel{
   imgUrl: string;
   types: string[];
   moves: string[];
-  stats: string[];
+  stats: StatListModel[];
 }
 
 export interface FetchedPkmnListModel{
@@ -18,4 +18,15 @@ export interface PkmnListModel{
   id: string;
   name: string;
   imgUrl: string;
+}
+
+export interface StatListModel{
+  base_stat: number;
+  effort: number;
+  stat: StatModel;
+}
+
+export interface StatModel{
+  name: string;
+  url: string;
 }
