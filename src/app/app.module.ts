@@ -26,6 +26,7 @@ import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.dir
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 //Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -54,6 +55,7 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardClickableDirective,
   ],
   imports: [
+    NgxSpinnerModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

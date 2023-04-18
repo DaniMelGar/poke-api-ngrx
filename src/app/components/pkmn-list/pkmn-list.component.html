@@ -1,7 +1,9 @@
 <body>
+  <ngx-spinner template="<img src='/assets/gifs/pokeball_anim.gif' />" >
+    <h1 style="color: white;" > Loading... </h1>
+  </ngx-spinner>
+
   <div *ngIf="loading$ | async">
-    <!--<b>Loading... {{loading$ | async | json}}</b>-->
-    <b>Loading...</b>
   </div><br><br>
 
   <div *ngIf="pkmnList$ | async as pkmnList">
