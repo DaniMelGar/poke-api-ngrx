@@ -26,12 +26,14 @@ import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.dir
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
+import { CarouselComponent } from './components/pkmn-details/carousel/carousel.component';
 //Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 @NgModule({
   declarations: [
@@ -52,8 +54,10 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    CarouselComponent,
   ],
   imports: [
+    MdbCarouselModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

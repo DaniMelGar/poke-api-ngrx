@@ -1,0 +1,74 @@
+<mdb-carousel [controls]="true" [indicators]="true" [dark]="true">
+  <mdb-carousel-item *ngIf="sprites.back_default">
+    <img
+      src={{sprites.back_default}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-md-block">
+      <h5>Back default</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.back_female">
+    <img
+      src={{sprites.back_female}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Back female</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.back_shiny">
+    <img
+      src={{sprites.back_shiny}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Back shiny</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.back_shiny_female">
+    <img
+      src={{sprites.back_shiny_female}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Back shiny female</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.front_default">
+    <img
+      src={{sprites.front_default}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Front default</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.front_female">
+    <img
+      src={{sprites.front_female}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Front female</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.front_shiny">
+    <img
+      src={{sprites.front_shiny}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Front shiny</h5>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item *ngIf="sprites.front_shiny_female">
+    <img
+      src={{sprites.front_shiny_female}}
+      style="width: 250px;height: 250px;"
+    />
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Front shiny female</h5>
+    </div>
+  </mdb-carousel-item>
+  </mdb-carousel>
