@@ -30,4 +30,10 @@ export class PkmnDetailsComponent {
 
   }
 
+  // ngOnDestroy(): void{
+  //   this.pkmn$ = of(null);
+  // }
+
+
+
 }
