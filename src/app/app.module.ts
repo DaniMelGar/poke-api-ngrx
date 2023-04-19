@@ -32,6 +32,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FavClickDirective } from './directives/fav-click.directive';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    FavClickDirective,
   ],
   imports: [
     MatCardModule,
