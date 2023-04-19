@@ -5,6 +5,7 @@ export interface PkmnModel{
   types: string[];
   moves: string[];
   stats: StatListModel[];
+  species: string[];
 }
 
 export interface FetchedPkmnListModel{

@@ -70,4 +70,8 @@ export class PkmnService {
     return this.http.get(url);
   }
 
+  getSpecieByUrl(url: any): Observable<any>{
+    return this.http.get(url);
+  }
+
 }

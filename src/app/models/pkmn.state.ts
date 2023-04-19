@@ -9,3 +9,7 @@ export interface PkmnState{
   loading: boolean,
   pkmn: Readonly<PkmnModel>;
 }
+
+export interface SpecieState{
+  specie: Readonly<any>;
+}

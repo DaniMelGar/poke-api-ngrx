@@ -34,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatSortModule } from '@angular/material/sort';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    PkmnDetailsEvolutionsComponent,
   ],
   imports: [
     MatCardModule,

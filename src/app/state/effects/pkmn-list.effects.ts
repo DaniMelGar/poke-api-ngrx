@@ -38,6 +38,16 @@ export class PkmnListEffects {
     )
     );
 
+    loadPkmnSpecie$ = createEffect(() => this.actions$.pipe(
+      ofType('[Pkmn Details Evolutions] Load specie by url'),
+      mergeMap((action: any) => this.pkmnService.getSpecieByUrl(action.url)
+          .pipe(
+              map(specie => ({ type: '[Pkmn Details Evolutions] Loaded specie by url success', specie })),
+              catchError(() => EMPTY)
+          ))
+    )
+    );
+
     constructor(
         private actions$: Actions,
         private pkmnService: PkmnService

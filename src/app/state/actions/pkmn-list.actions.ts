@@ -20,3 +20,13 @@ export const loadedPkmnByName = createAction(
   '[Pkmn List] Loaded pkmn by name success',
   props<{ pkmn: PkmnModel, name : string }>()
 );
+
+export const loadPkmnSpecie = createAction(
+  '[Pkmn Details Evolutions] Load specie by url',
+  props<{ url: any }>()
+);
+
+export const loadedPkmnSpecie = createAction(
+  '[Pkmn Details Evolutions] Loaded specie by url success',
+  props<{ specie: any, url: any }>()
+);
