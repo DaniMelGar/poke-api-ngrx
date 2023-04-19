@@ -14,7 +14,7 @@
 </mat-card> -->
 
 <div class="card text-center" style="width: 18rem; height: 24rem;  margin: 2rem;padding: 1rem;border-radius:30px;box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68);
--webkit-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68); -moz-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68);" appPkmnCardClickable [name]="pkmn.name">
+-webkit-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68); -moz-box-shadow: 18px 10px 32px 5px rgba(0,0,0,0.68); cursor: pointer;" appPkmnCardClickable [name]="pkmn.name">
   <img appImgError class="card-img-top" src={{pkmn.imgUrl}} >
   <div class="card-body ">
     <h5 class="card-title" ><b style="color:#ee1515;">#{{pkmn.id}}</b> {{pkmn.name |uppercase}}</h5>
