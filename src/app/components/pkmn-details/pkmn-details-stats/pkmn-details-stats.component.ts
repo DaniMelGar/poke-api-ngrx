@@ -14,7 +14,7 @@ export class PkmnDetailsStatsComponent {
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
   dataSource = new MatTableDataSource<StatListModel>();
-  displayedColumns = ['name', 'value'];
+  displayedColumns = ['name', 'base_stat'];
 
   // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 

@@ -7,12 +7,12 @@
   <mat-table #table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let stat"> {{stat.stat.name | uppercase}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="value">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Value </mat-header-cell>
+    <ng-container matColumnDef="base_stat">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Base stat </mat-header-cell>
       <mat-cell *matCellDef="let stat"> {{stat.base_stat}} </mat-cell>
     </ng-container>
 
