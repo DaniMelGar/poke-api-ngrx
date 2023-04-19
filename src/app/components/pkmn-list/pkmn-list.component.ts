@@ -43,7 +43,7 @@ export class PkmnListComponent {
       this.spinner.show();
       setTimeout(() => {
         this.spinner.hide();
-      }, 5000);
+      }, 1500);
     }
 
     this.aroute.queryParams
@@ -52,6 +52,8 @@ export class PkmnListComponent {
         const offset = params['offset'];
         this.store.dispatch(loadPkmnList({ offset: offset }));
         this.pkmnList$ = this.store.select(selectPkmnList);
+        //Es tan rapido que no se llega a ver practicamente el spinner
+        //this.spinner.hide();
       });
 
     this.totalNumberOfPkmn = environment.totalNumberOfPkmn;
