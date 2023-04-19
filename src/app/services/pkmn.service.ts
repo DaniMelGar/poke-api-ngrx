@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable,map,of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
-import { FetchedPkmnListModel, PkmnListModel, PkmnModel } from '../models/pkmn.interface';
+import { FetchedPkmnListModel, PkmnListModel, PkmnModel, SpecieModel } from '../models/pkmn.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -70,8 +70,32 @@ export class PkmnService {
     return this.http.get(url);
   }
 
-  getSpecieByUrl(url: any): Observable<any>{
+  // getSpecieByUrl(url: any): Observable<any>{
+  //   return this.http.get(url);
+  // }
+
+  getSpecieByUrl(url: any): Observable<SpecieModel>{
+    return this.http.get(url).pipe(
+      map((specie: any) =>{
+        return{
+          evolution_chain: specie.evolution_chain
+        }
+      })
+    );
+  }
+
+  getEvolutionChainBySpecieUrl(url: any): Observable<any>{
     return this.http.get(url);
   }
+
+  // private getEvolutionChainBySpecie(url: any): Observable<any>{
+  //   return this.http.get(url).pipe(
+  //     map((specie: any) =>{
+  //       return{
+  //         this.http.get(specie.evolution_chain)
+  //       }
+  //     })
+  //   );
+  // }
 
 }

@@ -31,3 +31,7 @@ export interface StatModel{
   name: string;
   url: string;
 }
+
+export interface SpecieModel{
+  evolution_chain: string;
+}

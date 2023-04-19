@@ -1,4 +1,4 @@
-import { PkmnModel,PkmnListModel } from "./pkmn.interface";
+import { PkmnModel,PkmnListModel, SpecieModel } from "./pkmn.interface";
 
 export interface PkmnListState{
   loading: boolean,
@@ -11,5 +11,5 @@ export interface PkmnState{
 }
 
 export interface SpecieState{
-  specie: Readonly<any>;
+  specie: Readonly<SpecieModel>;
 }

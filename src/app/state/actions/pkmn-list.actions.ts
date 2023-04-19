@@ -1,4 +1,4 @@
-import { PkmnModel, PkmnListModel } from './../../models/pkmn.interface';
+import { PkmnModel, PkmnListModel, SpecieModel } from './../../models/pkmn.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadPkmnList = createAction(
@@ -28,5 +28,5 @@ export const loadPkmnSpecie = createAction(
 
 export const loadedPkmnSpecie = createAction(
   '[Pkmn Details Evolutions] Loaded specie by url success',
-  props<{ specie: any, url: any }>()
+  props<{ specie: SpecieModel, url: any }>()
 );
