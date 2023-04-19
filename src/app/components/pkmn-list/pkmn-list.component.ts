@@ -43,7 +43,7 @@ export class PkmnListComponent {
       this.spinner.show();
       setTimeout(() => {
         this.spinner.hide();
-      }, 1500);
+      }, 1000);
     }
 
     this.aroute.queryParams

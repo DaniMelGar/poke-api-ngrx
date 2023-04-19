@@ -1,6 +1,7 @@
 <ng-template [ngIf]="loading$ | async" [ngIfElse]="loaded">
-  <!--<b>Loading... {{loading$ | async | json}}</b>-->
-  <b>Loading...</b>
+  <ngx-spinner template="<img src='/assets/gifs/pixel_pokeball_rotate.gif' />" >
+    <!-- <h2 style="color: white;" > Loading... </h2> -->
+  </ngx-spinner>
 </ng-template><br><br>
 
 <ng-template #loaded>

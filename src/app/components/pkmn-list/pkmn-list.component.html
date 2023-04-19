@@ -3,9 +3,6 @@
     <!-- <h2 style="color: white;" > Loading... </h2> -->
   </ngx-spinner>
 
-  <div *ngIf="loading$ | async">
-  </div><br><br>
-
   <div *ngIf="pkmnList$ | async as pkmnList">
     <h1 class="text-center" style="font-family: 'pokemon-solid'; letter-spacing: 7px; -webkit-text-stroke: 4px #3473a6; color: #ffd22d; font-size: 400%;
     text-shadow: 6px 5px 2px black;">Total number of Pokémon: {{totalNumberOfPkmn}}</h1><br/><br/>
