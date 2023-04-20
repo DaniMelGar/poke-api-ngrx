@@ -1,11 +1,25 @@
+import { Observable } from "rxjs";
+
 export interface PkmnModel{
-  id: string;
+  id: number;
   name: string;
-  imgUrl: string;
+  sprites: any;
   types: string[];
   moves: string[];
   stats: StatListModel[];
-  species: string[];
+  species: any;
+}
+
+export interface Pokemon {
+  name: string;
+  url: string;
+  evolves_to: Pokemon[];
+}
+
+export interface PkmnResponse {
+  name: string;
+  response: any;
+  evolves_to: PkmnResponse[];
 }
 
 export interface FetchedPkmnListModel{
@@ -34,4 +48,9 @@ export interface StatModel{
 
 export interface SpecieModel{
   evolution_chain: string;
+}
+
+export interface PkmnEvolutionsModel{
+  name : string,
+  evolves_to: PkmnEvolutionsModel[]
 }
