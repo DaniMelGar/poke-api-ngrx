@@ -1,17 +1,26 @@
-import { Directive, HostListener, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appFavClick]',
 })
 export class FavClickDirective {
-  @Input() id: string = '';
+  @Input() id: Number = 0;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   @HostListener('click')
   onClick(): void {
-    localStorage.setItem('ids', this.id);
-    console.log(this.id);
+    var storedArray = JSON.parse(sessionStorage.getItem('fav')!);
+    var deleted = false;
+    for (let i = 0; i < storedArray.length; i++) {
+      if (storedArray[i] == this.id) {
+        storedArray.splice(i, 1);
+        deleted = true;
+      }
+    }
+    if (!deleted) {
+      storedArray.push(this.id);
+    }
+    sessionStorage.setItem('fav', JSON.stringify(storedArray));
   }
 }

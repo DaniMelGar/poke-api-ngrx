@@ -23,7 +23,7 @@
       <!-- <button class="btn btn-danger btn-lg" (click)="searchPkmnByName(pkmn?.name)" style="margin-top: 1rem;">DETAILS</button><br/><br/> -->
     </div>
   </span>
-  <button appFavClick [id]="pkmn.id" type="button" class="btn btn-outline-success btn-floating" mdbRipple rippleColor="dark">
-    <i class="fas fa-star"></i>
+  <button appFavClick [id]="pkmn.id" type="button" class="btn rounded-star center" style="display: center;" data-mdb-ripple-color="light">
+    <i style="color: yellow" [ngClass]="{'far': !containsFav(pkmn.id), 'fas': containsFav(pkmn.id), 'fa-star': true, 'fa-lg': true}"></i>
   </button>
 </div>

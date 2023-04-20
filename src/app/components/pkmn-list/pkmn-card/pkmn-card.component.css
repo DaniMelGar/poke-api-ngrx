@@ -1,0 +1,11 @@
+.rounded-star {
+  display:block;
+  border-radius: 50%;
+  border: 1px solid yellow;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}

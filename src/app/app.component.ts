@@ -8,5 +8,8 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'poke-api-ngrx';
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+    var favArray: Number[] = [];
+    sessionStorage.setItem('fav', JSON.stringify(favArray));
+  }
 }
