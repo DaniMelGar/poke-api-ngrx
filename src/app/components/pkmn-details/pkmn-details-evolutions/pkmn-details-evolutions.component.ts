@@ -5,6 +5,7 @@ import { Observable, of, tap } from 'rxjs';
 import {loadPkmnSpecie} from './../../../state/actions/pkmn-list.actions';
 import { selectPkmnSpecie } from 'src/app/state/selectors/pkmn-list.selectors';
 import { PkmnModel, SpecieModel } from 'src/app/models/pkmn.interface';
+import 'zone.js/dist/zone';
 
 @Component({
   selector: 'app-pkmn-details-evolutions',
@@ -29,7 +30,8 @@ export class PkmnDetailsEvolutionsComponent {
 
     // this.store.dispatch(loadPkmnEvolutions({pkmn: this.pkmn}))
     // this.evolutions$ = this.store.select(selectPkmnEvolutions)
-    this.pkmnService.getPkmnEvolutionsByName(this.name).subscribe(res => console.log(this.pkmnService.convertPokemonEvolutionChain(res)))
+
+    this.pkmnService.getPkmnEvolutionsByName(this.name).subscribe(res => console.log(res))
 
   }
 

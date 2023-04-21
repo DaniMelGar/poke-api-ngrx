@@ -11,6 +11,7 @@ import {
   Pokemon,
   PkmnEvolutionsModel,
 } from '../models/pkmn.interface';
+import { convertPokemonEvolutionChain, transformPkmnListIntoPkmn } from 'src/utils';
 
 @Injectable({
   providedIn: 'root',
@@ -27,31 +28,17 @@ export class PkmnService {
   getPkmnList(): Observable<PkmnListModel[]> {
     return this.http
       .get<FetchedPkmnListModel>(this.apiUrl + 'pokemon?limit=100000&offset=0')
-      .pipe(map(this.transformPkmnListIntoPkmn));
+      .pipe(map(transformPkmnListIntoPkmn));
   }
 
-  private transformPkmnListIntoPkmn(
-    resp: FetchedPkmnListModel
-  ): PkmnListModel[] {
-    return resp.results.map((pkmn: any) => {
-      const urlArr = pkmn.url.split('/');
-      const id = urlArr[6];
-      const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
-      return {
-        id,
-        imgUrl,
-        name: pkmn.name,
-      };
-    });
-  }
 
   getPkmnListPag(offset: any): Observable<PkmnListModel[]> {
     return this.http
       .get<FetchedPkmnListModel>(
         `${this.apiUrl}pokemon?limit=${environment.pkmnPageLimit}&offset=${offset}`
       )
-      .pipe(map(this.transformPkmnListIntoPkmn));
+      .pipe(map(transformPkmnListIntoPkmn));
   }
 
   /*getAll(): Observable<Pokemon[]> {
@@ -114,7 +101,7 @@ export class PkmnService {
   //   );
   // }
 
-  public getPkmnEvolutionsByName(name: string): Observable<any> {
+  getPkmnEvolutionsByName(name: string): Observable<any> {
     // console.log("service:"+name)
     // return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${name}`).pipe(
     return this.getPkmnByName(name).pipe(
@@ -127,20 +114,11 @@ export class PkmnService {
             )
           )
       ),
-      map((evolutionChainResponse) => evolutionChainResponse)
+      map((evolutionChainResponse) => convertPokemonEvolutionChain(evolutionChainResponse))
     );
   }
 
-  convertPokemonEvolutionChain(pkmnData: any) {
-    const result = {
-      name: pkmnData.chain.species.name,
-      evolves_to: [],
-    };
-    if (pkmnData.chain.evolves_to && pkmnData.chain.evolves_to.length > 0) {
-      result.evolves_to = pkmnData.chain.evolves_to.map((evolution: any) =>
-        this.convertPokemonEvolutionChain({ chain: evolution })
-      );
-    }
-    return result;
-  }
+
+
+
 }
