@@ -32,6 +32,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardClickableDirective,
   ],
   imports: [
+    MatAutocompleteModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

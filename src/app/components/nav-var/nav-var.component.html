@@ -29,9 +29,17 @@
           <a class="nav-link disabled">Link</a>
         </li> -->
       </ul>
-      <form class="d-flex" role="search" style="margin-right: 1rem;">
-        <input class="form-control me-2 " type="search" placeholder="Search by name" aria-label="Search">
-        <button class="btn btn btn-light" type="submit" >Search</button>
+      <form class="d-flex"  style="margin-right: 1rem;">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Pokémon</mat-label>
+          <input matInput aria-label="State" [matAutocomplete]="auto" [formControl] = "pkmnCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let pkmn of pkmnList$ | async" [value]="pkmn.name">
+              <img [src]="pkmn.imgUrl" alt="" height="55" class="example-option-img">
+              <span>{{pkmn.name}}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
       </form>
     </div>
   </div>
