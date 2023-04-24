@@ -37,6 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTableModule,
     MatSortModule,
     MatTreeModule,
+    MatIconModule,
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],

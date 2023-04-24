@@ -100,7 +100,7 @@ export class PkmnService {
   //   );
   // }
 
-  getPkmnEvolutionsByName(name: string): Observable<any> {
+  getPkmnEvolutionChainByName(name: string): Observable<any> {
     // console.log("service:"+name)
     // return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${name}`).pipe(
     return this.getPkmnByName(name).pipe(

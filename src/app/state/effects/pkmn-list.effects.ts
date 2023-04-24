@@ -29,10 +29,10 @@ export class PkmnListEffects {
 
 
     loadPkmnByName$ = createEffect(() => this.actions$.pipe(
-      ofType('[Pkmn List] Load pkmn by name'),
+      ofType('[Pkmn Details] Load pkmn by name'),
       mergeMap((action: any) => this.pkmnService.getPkmnByName(action.name)
           .pipe(
-              map(pkmn => ({ type: '[Pkmn List] Loaded pkmn by name success', pkmn })),
+              map(pkmn => ({ type: '[Pkmn Details] Loaded pkmn by name success', pkmn })),
               catchError(() => EMPTY)
           ))
     )
@@ -50,9 +50,9 @@ export class PkmnListEffects {
 
     loadPkmnEvolutionChain$ = createEffect(() => this.actions$.pipe(
       ofType('[Pkmn Details Evolutions] Load evolutionChain by name success'),
-      mergeMap((action: any) => this.pkmnService.getPkmnEvolutionsByName(action.name)
+      mergeMap((action: any) => this.pkmnService.getPkmnEvolutionChainByName(action.name)
           .pipe(
-              map(evolutionChain => ({ type: '[Pkmn Details Evolutions] Loadeded evolutionChain by name success', evolutionChain })),
+              map(evolutionChain => ({ type: '[Pkmn Details Evolutions] Loaded evolutionChain by name success', evolutionChain })),
               catchError(() => EMPTY)
           ))
     )

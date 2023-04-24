@@ -12,12 +12,12 @@ export const loadedPkmnList = createAction(
 );
 
 export const loadPkmnByName = createAction(
-  '[Pkmn List] Load pkmn by name',
+  '[Pkmn Details] Load pkmn by name',
   props<{ name : string }>()
 );
 
 export const loadedPkmnByName = createAction(
-  '[Pkmn List] Loaded pkmn by name success',
+  '[Pkmn Details] Loaded pkmn by name success',
   props<{ pkmn: PkmnModel, name : string }>()
 );
 
