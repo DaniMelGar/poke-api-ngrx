@@ -7,10 +7,15 @@
   <div *ngIf="pkmnList$ | async as pkmnList">
     <h1 class="text-center" style="font-family: 'pokemon-solid'; letter-spacing: 7px; -webkit-text-stroke: 4px #3473a6; color: #ffd22d; font-size: 400%;
     text-shadow: 6px 5px 2px black;">Total number of Pokémon: {{totalNumberOfPkmn}}</h1><br/><br/>
-    <!-- <button class="ms-5 button button-primary" (click)="verify()">Verify JWT</button><br/><br> -->
+
+    <!-- Add input field for filtering -->
+    <div class="form-group">
+      <label for="search">Search by name:</label>
+      <input [(ngModel)]="searchTerm" type="text" class="form-control" id="search" >
+    </div>
 
     <div class="pknm-list">
-      <div class="pkmn-item" *ngFor="let pkmn of pkmnList">
+      <div class="pkmn-item" *ngFor="let pkmn of pkmnList | filterByName: searchTerm">
 
         <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
         <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
@@ -22,8 +27,3 @@
 
   </div>
 </body>
-
-
-
-
-

@@ -24,7 +24,7 @@ import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.co
 import { NavVarComponent } from './components/nav-var/nav-var.component';
 import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.directive';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
 //Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +33,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FilterByNamePipe } from './pipes/filter-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    FilterByNamePipe
   ],
   imports: [
     MatAutocompleteModule,
@@ -68,6 +70,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    FormsModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],

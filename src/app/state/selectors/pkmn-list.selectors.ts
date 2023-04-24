@@ -1,4 +1,4 @@
-import { PkmnListState, PkmnState } from '../../models/pkmn.state';
+import { PkmnListState, PkmnState, PkmnFilterState } from '../../models/pkmn.state';
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
 
@@ -6,6 +6,7 @@ import { AppState } from '../app.state';
 
 export const selectPkmnListFeature = (state: AppState) => state.pkmnList;//TODO: PADRE
 export const selectPkmnByNameFeature = (state: AppState) => state.pkmn;
+export const selectPkmnFilteredFeature = (state: AppState) => state.pkmnFilter;
 
 export const selectPkmnList = createSelector(
   selectPkmnListFeature,
@@ -26,3 +27,10 @@ export const selectPkmnLoading = createSelector(
   selectPkmnByNameFeature,
   (state: PkmnState) => state.loading //TODO: HIJO
 );
+
+export const selectPkmnFiltered = createSelector(
+  selectPkmnFilteredFeature,
+  (state: PkmnFilterState) => state.pkmnFiltered //TODO: HIJO
+);
+
+

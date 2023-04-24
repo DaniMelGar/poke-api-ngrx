@@ -20,3 +20,7 @@ export const loadedPkmnByName = createAction(
   '[Pkmn List] Loaded pkmn by name success',
   props<{ pkmn: PkmnModel, name : string }>()
 );
+export const filteredPkmnByName = createAction(
+  '[Pkmn List] filtered pkmn by name success',
+  props<{ pkmnFiltered: any }>()
+);

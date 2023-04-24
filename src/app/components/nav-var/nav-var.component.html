@@ -1,42 +1,26 @@
-<nav class="navbar navbar-expand-lg " style="background-color: 	#ee1515;--bs-navbar-color: #ffffff;--bs-navbar-brand-color: #ffffff;
---bs-navbar-active-color:#000000; border-bottom: 1px solid black;">
+<nav class="navbar navbar-expand-lg" style="background-color: #ee1515; --bs-navbar-color: #ffffff; --bs-navbar-brand-color: #ffffff; --bs-navbar-active-color: #000000; border-bottom: 1px solid black;">
   <div class="container-fluid">
-    <img style="width: 7rem;height: 2.5rem;margin-left: 1rem;" src="assets/images/pkmn-logo.png"/>
-    <a class="navbar-brand" href="#" style="margin-left: 4rem;">PkmnAPI</a>
+    <img style="width: 7rem; height: 2.5rem; margin-left: 1rem" src="assets/images/pkmn-logo.png" />
+    <a class="navbar-brand" href="#" style="margin-left: 4rem">PkmnAPI</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li> -->
-        <li class="nav-item" style="margin-left: 1rem;">
-          <a class="nav-link" [routerLink]="['/pkmn-list']" [queryParams]="{ offset: 0}">Pkmn List</a>
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+        <li class="nav-item" style="margin-left: 1rem">
+          <a class="nav-link" [routerLink]="['/pkmn-list']" [queryParams]="{ offset: 0 }">Pkmn List</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link disabled">Link</a>
-        </li> -->
       </ul>
-      <form class="d-flex"  style="margin-right: 1rem;">
+      <form class="d-flex" style="margin-right: 1rem">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Pokémon</mat-label>
-          <input matInput aria-label="State" [matAutocomplete]="auto" [formControl] = "pkmnCtrl">
+          <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="pkmnCtrl" />
+          <!-- <input matInput aria-label="State" [matAutocomplete]="auto" [(ngModel)]="searchTerm" /> -->
+
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let pkmn of pkmnList$ | async" [value]="pkmn.name">
-              <img [src]="pkmn.imgUrl" alt="" height="55" class="example-option-img">
-              <span>{{pkmn.name}}</span>
+            <mat-option *ngFor="let pkmn of pkmnList$ | async" [value]="pkmn.name" appPkmnCardClickable [name]="pkmn.name">
+              <img [src]="pkmn.imgUrl" alt="" height="55" class="example-option-img" />
+              <span>{{ pkmn.name }}</span>
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>

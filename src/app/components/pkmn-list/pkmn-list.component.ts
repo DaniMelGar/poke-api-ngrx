@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { loadPkmnList } from './../../state/actions/pkmn-list.actions';
 import { selectPkmnListLoading, selectPkmnList } from './../../state/selectors/pkmn-list.selectors';
-import { Observable, Subject, of, takeUntil ,take } from 'rxjs';
+import { Observable, Subject, of, takeUntil ,take, map } from 'rxjs';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
@@ -18,12 +18,14 @@ export class PkmnListComponent {
       console.log(response);
     });
   }
-
+  
   loading$: Observable<boolean> = of(false)
   pkmnList$: Observable<any> = of([])
   offset: any
   private unsubscribe$ = new Subject<void>();
   totalNumberOfPkmn: number = 0
+  filteredPkmnList$: Observable<any> | undefined;
+  searchTerm: string = '';
 
   constructor(private store: Store<any>, private aroute: ActivatedRoute,private authService: AuthService) {
   }
@@ -36,10 +38,28 @@ export class PkmnListComponent {
       ).subscribe(params => {
         const offset = params['offset'];
         this.store.dispatch(loadPkmnList({offset: offset}))
-        this.pkmnList$ = this.store.select(selectPkmnList)
       });
 
-      this.totalNumberOfPkmn = environment.totalNumberOfPkmn
+    this.store.select(selectPkmnList).pipe(
+      takeUntil(this.unsubscribe$)
+      ).subscribe(pkmnList => {
+        this.pkmnList$ = of(pkmnList);
+      });
+
+      this.filteredPkmnList$ = this.pkmnList$.pipe(
+        map((pkmnList: any[]) =>
+          pkmnList.filter((pkmn: any) =>
+            pkmn.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+          )
+        )
+      );
+
+    this.totalNumberOfPkmn = environment.totalNumberOfPkmn
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }
