@@ -6,10 +6,9 @@ import {
   FetchedPkmnListModel,
   PkmnListModel,
   PkmnModel,
-  SpecieModel,
   PkmnResponse,
   Pokemon,
-  PkmnEvolutionsModel,
+  PkmnEvolutionChainModel,
 } from '../models/pkmn.interface';
 import { convertPokemonEvolutionChain, transformPkmnListIntoPkmn } from 'src/utils';
 
@@ -77,15 +76,15 @@ export class PkmnService {
   //   return this.http.get(url);
   // }
 
-  getSpecieByUrl(url: any): Observable<SpecieModel> {
-    return this.http.get(url).pipe(
-      map((specie: any) => {
-        return {
-          evolution_chain: specie.evolution_chain,
-        };
-      })
-    );
-  }
+  // getSpecieByUrl(url: any): Observable<SpecieModel> {
+  //   return this.http.get(url).pipe(
+  //     map((specie: any) => {
+  //       return {
+  //         evolution_chain: specie.evolution_chain,
+  //       };
+  //     })
+  //   );
+  // }
 
   // getEvolutionChainBySpecieUrl(url: any): Observable<any>{
   //   return this.http.get(url);

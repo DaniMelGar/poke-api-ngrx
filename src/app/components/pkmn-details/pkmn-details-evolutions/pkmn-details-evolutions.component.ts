@@ -2,9 +2,9 @@ import { PkmnService } from './../../../services/pkmn.service';
 import { Component, Input, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of, tap } from 'rxjs';
-import {loadPkmnSpecie} from './../../../state/actions/pkmn-list.actions';
-import { selectPkmnSpecie } from 'src/app/state/selectors/pkmn-list.selectors';
-import { PkmnModel, SpecieModel } from 'src/app/models/pkmn.interface';
+import {loadPkmnEvolutionChain} from './../../../state/actions/pkmn-list.actions';
+import { selectPkmnEvolutionChain } from 'src/app/state/selectors/pkmn-list.selectors';
+import { PkmnModel } from 'src/app/models/pkmn.interface';
 import 'zone.js/dist/zone';
 
 @Component({
@@ -16,7 +16,7 @@ export class PkmnDetailsEvolutionsComponent {
 
   @Input() name: string = ""
   // specie$: Observable<SpecieModel> = of()
-  //evolutions$: Observable<any> = this.pkmnService.getPkmnEvolutionsByName('bulbasaur');
+  evolutions$: Observable<any> = of()
 
 
   constructor(private store: Store<any>, private pkmnService: PkmnService){
@@ -28,10 +28,11 @@ export class PkmnDetailsEvolutionsComponent {
     // this.specie$ = this.store.select(selectPkmnSpecie)
     //console.log(this.specie$.pipe(tap(evolution_chain)))
 
-    // this.store.dispatch(loadPkmnEvolutions({pkmn: this.pkmn}))
-    // this.evolutions$ = this.store.select(selectPkmnEvolutions)
+    this.store.dispatch(loadPkmnEvolutionChain({name: this.name}))
+    this.evolutions$ = this.store.select(selectPkmnEvolutionChain)
 
-    this.pkmnService.getPkmnEvolutionsByName(this.name).subscribe(res => console.log(res))
+    //this.pkmnService.getPkmnEvolutionsByName(this.name).subscribe(res => console.log(res))
+    //console.log(this.evolutions$)
 
   }
 

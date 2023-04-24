@@ -1,16 +1,19 @@
-import { pkmnReducer, specieReducer } from './reducers/pkmn.reducers';
+import { pkmnReducer, evolutionChainReducer } from './reducers/pkmn.reducers';
 import { pkmnListReducer} from './reducers/pkmn-list.reducers';
-import { PkmnListState, PkmnState, SpecieState } from '../models/pkmn.state';
+import { PkmnEvolutionChainState, PkmnListState, PkmnState } from '../models/pkmn.state';
 import { ActionReducerMap } from "@ngrx/store";
+import { PkmnEvolutionChainModel } from '../models/pkmn.interface';
 
 export interface AppState {
   pkmnList: PkmnListState;
   pkmn: PkmnState;
-  specie: SpecieState;
+  //specie: SpecieState;
+  evolutionChain: PkmnEvolutionChainState;
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
   pkmnList: pkmnListReducer,
   pkmn: pkmnReducer,
-  specie: specieReducer,
+  //specie: specieReducer,
+  evolutionChain: evolutionChainReducer,
 }

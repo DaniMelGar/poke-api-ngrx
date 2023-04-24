@@ -1,4 +1,4 @@
-import { PkmnModel, PkmnListModel, SpecieModel } from './../../models/pkmn.interface';
+import { PkmnModel, PkmnListModel, PkmnEvolutionChainModel } from './../../models/pkmn.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadPkmnList = createAction(
@@ -21,12 +21,22 @@ export const loadedPkmnByName = createAction(
   props<{ pkmn: PkmnModel, name : string }>()
 );
 
-export const loadPkmnSpecie = createAction(
-  '[Pkmn Details Evolutions] Load specie by url',
-  props<{ url: any }>()
+// export const loadPkmnSpecie = createAction(
+//   '[Pkmn Details Evolutions] Load specie by url',
+//   props<{ url: any }>()
+// );
+
+// export const loadedPkmnSpecie = createAction(
+//   '[Pkmn Details Evolutions] Loaded specie by url success',
+//   props<{ specie: SpecieModel, url: any }>()
+// );
+
+export const loadPkmnEvolutionChain = createAction(
+  '[Pkmn Details Evolutions] Load evolutionChain by name success',
+  props<{ name: any }>()
 );
 
-export const loadedPkmnSpecie = createAction(
-  '[Pkmn Details Evolutions] Loaded specie by url success',
-  props<{ specie: SpecieModel, url: any }>()
+export const loadedPkmnEvolutionChain = createAction(
+  '[Pkmn Details Evolutions] Loadeded evolutionChain by name success',
+  props<{ evolutionChain: PkmnEvolutionChainModel, name: any }>()
 );

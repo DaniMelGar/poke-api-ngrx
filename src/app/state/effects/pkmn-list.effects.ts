@@ -38,11 +38,21 @@ export class PkmnListEffects {
     )
     );
 
-    loadPkmnSpecie$ = createEffect(() => this.actions$.pipe(
-      ofType('[Pkmn Details Evolutions] Load specie by url'),
-      mergeMap((action: any) => this.pkmnService.getSpecieByUrl(action.url)
+    // loadPkmnSpecie$ = createEffect(() => this.actions$.pipe(
+    //   ofType('[Pkmn Details Evolutions] Load specie by url'),
+    //   mergeMap((action: any) => this.pkmnService.getSpecieByUrl(action.url)
+    //       .pipe(
+    //           map(specie => ({ type: '[Pkmn Details Evolutions] Loaded specie by url success', specie })),
+    //           catchError(() => EMPTY)
+    //       ))
+    // )
+    // );
+
+    loadPkmnEvolutionChain$ = createEffect(() => this.actions$.pipe(
+      ofType('[Pkmn Details Evolutions] Load evolutionChain by name success'),
+      mergeMap((action: any) => this.pkmnService.getPkmnEvolutionsByName(action.name)
           .pipe(
-              map(specie => ({ type: '[Pkmn Details Evolutions] Loaded specie by url success', specie })),
+              map(evolutionChain => ({ type: '[Pkmn Details Evolutions] Loadeded evolutionChain by name success', evolutionChain })),
               catchError(() => EMPTY)
           ))
     )

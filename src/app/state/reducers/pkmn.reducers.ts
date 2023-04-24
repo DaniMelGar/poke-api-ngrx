@@ -1,13 +1,16 @@
-import { loadPkmnByName, loadedPkmnByName, loadPkmnSpecie, loadedPkmnSpecie} from '../actions/pkmn-list.actions';
-import { PkmnState, SpecieState } from '../../models/pkmn.state';
+import { loadPkmnByName, loadedPkmnByName, loadedPkmnEvolutionChain, loadPkmnEvolutionChain} from '../actions/pkmn-list.actions';
+import { PkmnEvolutionChainState, PkmnState } from '../../models/pkmn.state';
 import { createReducer, on } from '@ngrx/store';
 
 
 export const initialState: PkmnState = {loading: false, pkmn: null as any};
 
-export const initialStateSpecie: SpecieState = {specie: null as any};
+//export const initialStateSpecie: SpecieState = {specie: null as any};
+
+export const initialStatePkmnEvolutionChain: PkmnEvolutionChainState = {evolutionChain: null as any};
 
 export const pkmnReducer = createReducer(
+
   initialState,
   on(loadPkmnByName, (state) => {
     return { ...state, loading: true }
@@ -18,13 +21,26 @@ export const pkmnReducer = createReducer(
 
 );
 
-export const specieReducer = createReducer(
-  initialStateSpecie,
-  on(loadPkmnSpecie, (state) => {
+// export const specieReducer = createReducer(
+
+//   initialStateSpecie,
+//   on(loadPkmnSpecie, (state) => {
+//     return { ...state}
+//   }),
+//   on(loadedPkmnSpecie, (state, { specie }) => {
+//     return { ...state, specie }
+// }),
+
+// );
+
+export const evolutionChainReducer = createReducer(
+
+  initialStatePkmnEvolutionChain,
+  on(loadPkmnEvolutionChain, (state) => {
     return { ...state}
   }),
-  on(loadedPkmnSpecie, (state, { specie }) => {
-    return { ...state, specie }
+  on(loadedPkmnEvolutionChain, (state, { evolutionChain }) => {
+    return { ...state, evolutionChain }
 }),
 
 );

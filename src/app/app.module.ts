@@ -26,7 +26,9 @@ import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.dir
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
-//Materials
+import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
+
+//Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -34,7 +36,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
+import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-d
     NoopAnimationsModule,
     MatTableModule,
     MatSortModule,
+    MatTreeModule,
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],

@@ -46,11 +46,11 @@ export interface StatModel{
   url: string;
 }
 
-export interface SpecieModel{
-  evolution_chain: string;
-}
+// export interface SpecieModel{
+//   evolution_chain: string;
+// }
 
-export interface PkmnEvolutionsModel{
+export interface PkmnEvolutionChainModel{
   name : string,
-  evolves_to: PkmnEvolutionsModel[]
+  evolves_to: PkmnEvolutionChainModel[]
 }
