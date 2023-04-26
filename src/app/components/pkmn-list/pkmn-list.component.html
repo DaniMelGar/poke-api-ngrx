@@ -11,11 +11,12 @@
     <!-- Add input field for filtering -->
     <div class="form-group">
       <label for="search">Search by name:</label>
-      <input [(ngModel)]="searchTerm" type="text" class="form-control" id="search" >
+      <input type="text" (keyup)="onSearchFilterChanged($event)" class="form-control" id="search">
+
     </div>
 
-    <div class="pknm-list">
-      <div class="pkmn-item" *ngFor="let pkmn of pkmnList | filterByName: searchTerm">
+    <div *ngIf="filteredPkmnList$ | async as filteredPkmnList" class="pknm-list">
+      <div class="pkmn-item" *ngFor="let pkmn of filteredPkmnList">
 
         <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
         <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
