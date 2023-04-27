@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Pipe } from '@angular/core';
 import { Observable, map, of, switchMap, tap, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
@@ -10,7 +10,10 @@ import {
   Pokemon,
   PkmnEvolutionChainModel,
 } from '../models/pkmn.interface';
-import { convertPokemonEvolutionChain, transformPkmnListIntoPkmn } from 'src/utils';
+import {
+  convertPokemonEvolutionChain,
+  transformPkmnListIntoPkmn,
+} from 'src/utils';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +32,6 @@ export class PkmnService {
       .get<FetchedPkmnListModel>(this.apiUrl + 'pokemon?limit=100000&offset=0')
       .pipe(map(transformPkmnListIntoPkmn));
   }
-
-
 
   getPkmnListPag(offset: any): Observable<PkmnListModel[]> {
     return this.http
@@ -113,11 +114,9 @@ export class PkmnService {
             )
           )
       ),
-      map((evolutionChainResponse) => convertPokemonEvolutionChain(evolutionChainResponse))
+      map((evolutionChainResponse) =>
+        Array.of(convertPokemonEvolutionChain(evolutionChainResponse))
+      )
     );
   }
-
-
-
-
 }

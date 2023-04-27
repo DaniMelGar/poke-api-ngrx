@@ -34,10 +34,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import {MatTreeModule} from '@angular/material/tree';
-import {MatIconModule} from '@angular/material/icon';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import { TransformObservableToArrayPipe } from './pipes/transform-observable-to-array.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {MatIconModule} from '@angular/material/icon';
     NavVarComponent,
     PkmnCardClickableDirective,
     PkmnDetailsEvolutionsComponent,
+    TransformObservableToArrayPipe,
   ],
   imports: [
     MatCardModule,
@@ -78,7 +80,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatTreeModule,
     MatIconModule,
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider, TransformObservableToArrayPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

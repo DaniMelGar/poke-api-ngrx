@@ -1,4 +1,10 @@
-import { FetchedPkmnListModel, PkmnListModel, PkmnModel } from "./app/models/pkmn.interface";
+import { map, toArray } from 'rxjs';
+import {
+  FetchedPkmnListModel,
+  PkmnEvolutionChainModel,
+  PkmnListModel,
+  PkmnModel,
+} from './app/models/pkmn.interface';
 
 export function transformPkmnListIntoPkmn(
   resp: FetchedPkmnListModel
@@ -27,4 +33,20 @@ export function convertPokemonEvolutionChain(pkmnData: any) {
     );
   }
   return result;
+}
+
+export function convertObservableToEvolutionChain(
+  data: any
+): PkmnEvolutionChainModel[] {
+  const datos = data.pipe(
+    map((data: any) => {
+      return {
+        name: data.name,
+        evolves_to: data.evolves_to,
+      };
+    })
+  );
+  return datos;
+
+  //return [];
 }
