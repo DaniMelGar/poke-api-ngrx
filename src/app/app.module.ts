@@ -37,8 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTreeModule } from '@angular/material/tree';
-import { MatIconModule } from '@angular/material/icon';
-import { TransformObservableToArrayPipe } from './pipes/transform-observable-to-array.pipe';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -60,7 +59,6 @@ import { TransformObservableToArrayPipe } from './pipes/transform-observable-to-
     NavVarComponent,
     PkmnCardClickableDirective,
     PkmnDetailsEvolutionsComponent,
-    TransformObservableToArrayPipe,
   ],
   imports: [
     MatCardModule,
@@ -80,7 +78,7 @@ import { TransformObservableToArrayPipe } from './pipes/transform-observable-to-
     MatTreeModule,
     MatIconModule,
   ],
-  providers: [AuthInterceptorProvider, TransformObservableToArrayPipe],
+  providers: [AuthInterceptorProvider, MatIconRegistry],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

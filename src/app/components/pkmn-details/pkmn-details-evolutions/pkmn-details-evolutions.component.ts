@@ -1,21 +1,16 @@
 import { PkmnService } from './../../../services/pkmn.service';
-import { Component, Input, inject, Pipe } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of, tap, toArray } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { loadPkmnEvolutionChain } from './../../../state/actions/pkmn-list.actions';
 import { selectPkmnEvolutionChain } from 'src/app/state/selectors/pkmn-list.selectors';
-import { TransformObservableToArrayPipe } from './../../../pipes/transform-observable-to-array.pipe';
-import { convertObservableToEvolutionChain } from 'src/utils';
-
-////  FLAT NODES
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import {
   MatTreeFlatDataSource,
   MatTreeFlattener,
 } from '@angular/material/tree';
-//// NESTED NODES
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { PkmnEvolutionChainModel } from 'src/app/models/pkmn.interface';
 
 interface TreeNode {
@@ -91,29 +86,31 @@ export class PkmnDetailsEvolutionsComponent {
 
   hasChild = (_: number, node: FlatNode) => node.expandable;
 
-  /////////NESTED NODES
-
-  // treeControl = new NestedTreeControl<PkmnEvolutionChainModel>(
-  //   (node) => node.evolves_to
-  // );
-  // dataSource = new MatTreeNestedDataSource<any>();
-
-  // hasChild = (_: number, node: EvolutionNode) =>
-  //   !!node.evolves_to && node.evolves_to.length > 0;
-
   constructor(
     private store: Store<any>,
-    private pkmnService: PkmnService //private pipe: TransformObservableToArrayPipe
+    private pkmnService: PkmnService, //private pipe: TransformObservableToArrayPipe
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
   ) {
-    this.dataSource.data = TREE_DATA;
-    this.store.dispatch(loadPkmnEvolutionChain({ name: this.name }));
-    this.store
-      .select(selectPkmnEvolutionChain)
-      .pipe(tap((e) => console.log(e)))
-      .subscribe();
+    // this.dataSource.data = TREE_DATA;
+
+    iconRegistry.addSvgIcon(
+      'closed-pokeball',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/closed-pokeball.svg'
+      )
+    );
+
+    iconRegistry.addSvgIcon(
+      'opened-pokeball',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/opened-pokeball.svg'
+      )
+    );
   }
 
   ngOnInit(): void {
+    this.store.dispatch(loadPkmnEvolutionChain({ name: this.name }));
     this.evolutionChain$ = this.store.select(selectPkmnEvolutionChain);
 
     this.pkmnService
