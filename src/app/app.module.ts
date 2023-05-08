@@ -27,8 +27,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
 import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
-
-//Angular Material
+import { NgxSpinnerModule } from 'ngx-spinner';
+//Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -63,6 +63,7 @@ import { FavClickDirective } from './directives/fav-click.directive';
     FavClickDirective,
   ],
   imports: [
+    NgxSpinnerModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
