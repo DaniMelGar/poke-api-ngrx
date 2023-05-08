@@ -12,9 +12,7 @@ export class PkmnCardClickableDirective {
 
   @HostListener('click')
   onClick(): void{
-
     this.router.navigate(['/pkmn-details', this.name]);
-
   }
 
 }

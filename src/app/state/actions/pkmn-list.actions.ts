@@ -1,4 +1,8 @@
-import { PkmnModel, PkmnListModel, PkmnEvolutionChainModel } from './../../models/pkmn.interface';
+import {
+  PkmnModel,
+  PkmnListModel,
+  PkmnEvolutionChainModel,
+} from './../../models/pkmn.interface';
 import { createAction, props } from '@ngrx/store';
 
 export const loadPkmnList = createAction(
@@ -13,12 +17,12 @@ export const loadedPkmnList = createAction(
 
 export const loadPkmnByName = createAction(
   '[Pkmn Details] Load pkmn by name',
-  props<{ name : string }>()
+  props<{ name: string }>()
 );
 
 export const loadedPkmnByName = createAction(
   '[Pkmn Details] Loaded pkmn by name success',
-  props<{ pkmn: PkmnModel, name : string }>()
+  props<{ pkmn: PkmnModel; name: string }>()
 );
 
 // export const loadPkmnSpecie = createAction(
@@ -38,5 +42,10 @@ export const loadPkmnEvolutionChain = createAction(
 
 export const loadedPkmnEvolutionChain = createAction(
   '[Pkmn Details Evolutions] Loadeded evolutionChain by name success',
-  props<{ evolutionChain: PkmnEvolutionChainModel, name: any }>()
+  props<{ evolutionChain: PkmnEvolutionChainModel; name: any }>()
+);
+
+export const filteredPkmnByName = createAction(
+  '[Pkmn List] filtered pkmn by name success',
+  props<{ pkmnFiltered: any }>()
 );

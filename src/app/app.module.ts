@@ -24,7 +24,7 @@ import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.co
 import { NavVarComponent } from './components/nav-var/nav-var.component';
 import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.directive';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
 import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -41,6 +41,8 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { FavClickDirective } from './directives/fav-click.directive';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FilterByNamePipe } from './pipes/filter-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -64,10 +66,12 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     PkmnDetailsEvolutionsComponent,
     FavClickDirective,
     CarouselComponent,
+    FilterByNamePipe,
   ],
   imports: [
     NgxSpinnerModule,
     MdbCarouselModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
@@ -84,6 +88,7 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     MatSortModule,
     MatTreeModule,
     MatIconModule,
+    FormsModule,
   ],
   providers: [AuthInterceptorProvider, MatIconRegistry],
   bootstrap: [AppComponent],
