@@ -38,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { FavClickDirective } from './directives/fav-click.directive';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
     NavVarComponent,
     PkmnCardClickableDirective,
     PkmnDetailsEvolutionsComponent,
+    FavClickDirective,
   ],
   imports: [
     MatCardModule,
