@@ -1,4 +1,4 @@
-import { PkmnModel,PkmnListModel } from "./pkmn.interface";
+import { PkmnModel,PkmnListModel, PkmnEvolutionChainModel,  } from "./pkmn.interface";
 
 export interface PkmnListState{
   loading: boolean,
@@ -9,3 +9,11 @@ export interface PkmnState{
   loading: boolean,
   pkmn: Readonly<PkmnModel>;
 }
+
+// export interface SpecieState{
+//   specie: Readonly<SpecieModel>;
+// }
+
+export interface PkmnEvolutionChainState{
+    evolutionChain: Readonly<PkmnEvolutionChainModel>;
+  }

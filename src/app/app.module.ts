@@ -26,12 +26,18 @@ import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.dir
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
-//Materials
+import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
+
+//Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -52,6 +58,7 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    PkmnDetailsEvolutionsComponent,
   ],
   imports: [
     MatCardModule,
@@ -66,8 +73,12 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatTreeModule,
+    MatIconModule,
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider, MatIconRegistry],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

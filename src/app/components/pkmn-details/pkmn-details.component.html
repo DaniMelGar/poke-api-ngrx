@@ -1,25 +1,36 @@
 <ng-template [ngIf]="loading$ | async" [ngIfElse]="loaded">
   <!--<b>Loading... {{loading$ | async | json}}</b>-->
-  <b>Loading...</b>
-</ng-template><br><br>
+  <b>Loading...</b> </ng-template
+><br /><br />
 
 <ng-template #loaded>
   <div *ngIf="pkmn$ | async as pkmn">
-
     <div class="details-container">
       <div class="pkmk-details">
-        <h3>GENERAL:</h3><br>
-        <p><strong>ID:</strong> {{pkmn.id}}</p>
-        <p><strong>NAME:</strong> {{pkmn.name | uppercase}}</p><br>
-        <img appImgError style="width: 250px;height: 250px;" src="{{pkmn.sprites.front_default}}"/>
-        <br/>
+        <h3>GENERAL:</h3>
+        <br />
+        <p><strong>ID:</strong> {{ pkmn.id }}</p>
+        <p><strong>NAME:</strong> {{ pkmn.name | uppercase }}</p>
+        <br />
+        <img
+          appImgError
+          style="width: 250px; height: 250px"
+          src="{{ pkmn.sprites.front_default }}"
+        />
+        <br />
       </div>
 
-      <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types><br>
+      <app-pkmn-details-types [types]="pkmn.types"></app-pkmn-details-types
+      ><br />
 
-      <app-pkmn-details-stats [stats]="pkmn.stats"></app-pkmn-details-stats><br/>
+      <app-pkmn-details-stats [stats]="pkmn.stats"></app-pkmn-details-stats
+      ><br />
     </div>
 
+    <div class="details-container">
+      <app-pkmn-details-evolutions
+        [name]="pkmn.name"
+      ></app-pkmn-details-evolutions>
+    </div>
   </div>
-
 </ng-template>

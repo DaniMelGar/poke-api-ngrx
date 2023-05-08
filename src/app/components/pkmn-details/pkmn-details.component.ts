@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectPkmnLoading, selectPkmn } from './../../state/selectors/pkmn-list.selectors';
 import { ActivatedRoute } from '@angular/router';
+import { PkmnModel } from 'src/app/models/pkmn.interface';
 
 @Component({
   selector: 'app-pkmn-details',
@@ -13,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PkmnDetailsComponent {
 
   loading$: Observable<boolean> = of(false)
-  pkmn$: Observable<any> = of(null)
+  pkmn$: Observable<PkmnModel> = of()
   name: string = ""
 
   constructor(private store: Store<any>, private route: ActivatedRoute){}
