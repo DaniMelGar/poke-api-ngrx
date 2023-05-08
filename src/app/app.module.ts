@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
 import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarouselComponent } from './components/pkmn-details/carousel/carousel.component';
 //Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +40,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { FavClickDirective } from './directives/fav-click.directive';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 @NgModule({
   declarations: [
@@ -61,9 +63,11 @@ import { FavClickDirective } from './directives/fav-click.directive';
     PkmnCardClickableDirective,
     PkmnDetailsEvolutionsComponent,
     FavClickDirective,
+    CarouselComponent,
   ],
   imports: [
     NgxSpinnerModule,
+    MdbCarouselModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
