@@ -1,0 +1,33 @@
+<!-- <ng-template [ngIf]="loading$ | async" [ngIfElse]="loaded">
+  <b>Loading...</b> </ng-template
+><br /><br />
+<ng-template #loaded> -->
+
+<h3>EVOLUTION CHAIN:</h3>
+<br />
+
+<div *ngIf="evolutions$ | async">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node
+      *matTreeNodeDef="let node; when: hasChild"
+      matTreeNodeToggle
+      matTreeNodePadding
+    >
+      <li class="mat-tree-node">
+        <button mat-icon-button>
+          <mat-icon
+            [svgIcon]="
+              treeControl.isExpanded(node)
+                ? 'opened-pokeball'
+                : 'closed-pokeball'
+            "
+            inline="true"
+          />
+        </button>
+        <span style="margin-left: 20px; cursor: pointer">{{
+          node.name | uppercase
+        }}</span>
+      </li>
+    </mat-tree-node>
+  </mat-tree>
+</div>

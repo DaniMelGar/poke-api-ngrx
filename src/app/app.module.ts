@@ -24,14 +24,25 @@ import { PkmnCardComponent } from './components/pkmn-list/pkmn-card/pkmn-card.co
 import { NavVarComponent } from './components/nav-var/nav-var.component';
 import { PkmnCardClickableDirective } from './directives/pkmn-card-clickable.directive';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './services/auth.interceptor';
+import { PkmnDetailsEvolutionsComponent } from './components/pkmn-details/pkmn-details-evolutions/pkmn-details-evolutions.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarouselComponent } from './components/pkmn-details/carousel/carousel.component';
 //Materials
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { FavClickDirective } from './directives/fav-click.directive';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FilterByNamePipe } from './pipes/filter-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -52,8 +63,15 @@ import { MatButtonModule } from '@angular/material/button';
     PkmnCardComponent,
     NavVarComponent,
     PkmnCardClickableDirective,
+    PkmnDetailsEvolutionsComponent,
+    FavClickDirective,
+    CarouselComponent,
+    FilterByNamePipe,
   ],
   imports: [
+    NgxSpinnerModule,
+    MdbCarouselModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
@@ -66,8 +84,13 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatTreeModule,
+    MatIconModule,
+    FormsModule,
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider, MatIconRegistry],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

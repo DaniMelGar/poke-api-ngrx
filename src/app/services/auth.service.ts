@@ -31,6 +31,11 @@ export class AuthService {
     );
   }
 
+  logout() {
+    this._isLoggedIn$.next(false);
+    localStorage.removeItem(this.TOKEN_NAME);
+  }
+
   verify() {
     return this.apiService.verify().pipe(
       tap((response: any) => {
