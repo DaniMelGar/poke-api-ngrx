@@ -1,55 +1,61 @@
 <body>
-  <ngx-spinner template="<img src='/assets/gifs/pixel_pokeball_rotate.gif' />">
-    <!-- <h2 style="color: white;" > Loading... </h2> -->
-  </ngx-spinner>
-
-  <div *ngIf="pkmnList$ | async as pkmnList">
-    <h1
-      class="text-center"
-      style="
-        font-family: 'pokemon-solid';
-        letter-spacing: 7px;
-        -webkit-text-stroke: 4px #3473a6;
-        color: #ffd22d;
-        font-size: 400%;
-        text-shadow: 6px 5px 2px black;
-      "
+  <ng-template [ngIf]="loading$ | async" [ngIfElse]="loaded">
+    <ngx-spinner
+      template="<img src='/assets/gifs/pixel_pokeball_rotate.gif' />"
     >
-      Total number of Pokémon: {{ totalNumberOfPkmn }}
-    </h1>
-    <br /><br />
+      <!-- <h2 style="color: white;" > Loading... </h2> -->
+    </ngx-spinner>
+  </ng-template>
 
-    <!-- Add input field for filtering -->
-    <div class="pknm-list">
-      <label
-        for="search"
+  <ng-template #loaded>
+    <div *ngIf="pkmnList$ | async as pkmnList">
+      <h1
+        class="text-center"
         style="
-          font-size: 250%;
+          font-family: 'pokemon-solid';
+          letter-spacing: 7px;
+          -webkit-text-stroke: 4px #3473a6;
           color: #ffd22d;
-          -webkit-text-stroke: 2px #3473a6;
+          font-size: 400%;
+          text-shadow: 6px 5px 2px black;
         "
-        ><b>Search by name:</b></label
       >
-      <input
-        [(ngModel)]="searchTerm"
-        type="text"
-        class="form-control"
-        style="width: 50%; margin-left: 2rem"
-        id="search"
-      />
-    </div>
+        Total number of Pokémon: {{ totalNumberOfPkmn }}
+      </h1>
+      <br /><br />
 
-    <div class="pknm-list">
-      <div
-        class="pkmn-item"
-        *ngFor="let pkmn of pkmnList | filterByName : searchTerm"
-      >
-        <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
-        <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
-        <!-- <img appImgError style="width: 100px;height: 100px;" src="{{pkmn?.imgUrl}}"/> -->
+      <!-- Add input field for filtering -->
+      <div class="pknm-list">
+        <label
+          for="search"
+          style="
+            font-size: 250%;
+            color: #ffd22d;
+            -webkit-text-stroke: 2px #3473a6;
+          "
+          ><b>Search by name:</b></label
+        >
+        <input
+          [(ngModel)]="searchTerm"
+          type="text"
+          class="form-control"
+          style="width: 50%; margin-left: 2rem"
+          id="search"
+        />
       </div>
-    </div>
 
-    <app-pagination-pkmn-list></app-pagination-pkmn-list>
-  </div>
+      <div class="pknm-list">
+        <div
+          class="pkmn-item"
+          *ngFor="let pkmn of pkmnList | filterByName : searchTerm"
+        >
+          <app-pkmn-card [pkmn]="pkmn"></app-pkmn-card>
+          <!-- <button style="width: 500px;" class="btn btn-danger btn-lg ms-5" (click)="searchPkmnByName(pkmn?.name)">#{{pkmn?.id}} {{pkmn?.name | uppercase}}</button><br/><br/> -->
+          <!-- <img appImgError style="width: 100px;height: 100px;" src="{{pkmn?.imgUrl}}"/> -->
+        </div>
+      </div>
+
+      <app-pagination-pkmn-list></app-pagination-pkmn-list>
+    </div>
+  </ng-template>
 </body>
