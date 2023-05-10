@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, map, of, startWith, takeUntil } from 'rxjs';
+import { Observable, Subject, of, takeUntil } from 'rxjs';
 import { PkmnListModel } from 'src/app/models/pkmn.interface';
 import {
   filteredPkmnByName,
@@ -36,7 +36,6 @@ export class NavVarComponent {
       .select(filteredPkmnByName)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((pkmnListFiltered: any) => {
-        console.log(pkmnListFiltered.pkmnFilter.pkmnFiltered);
         this.pkmnList$ = of(pkmnListFiltered.pkmnFilter.pkmnFiltered);
       });
   }

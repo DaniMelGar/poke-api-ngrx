@@ -13,3 +13,10 @@
   justify-content: center;
   margin-top: 5rem;
 }
+
+body{
+  /* background-image: url('https://orig00.deviantart.net/b1e8/f/2014/219/9/1/pokeballs_wallpaper_by_mandolinc-d7u4dgk.png'); */
+  background-image: url("/assets/images/pokeball-bg.png");
+  background-size: cover;
+  min-height: 100vh;
+}

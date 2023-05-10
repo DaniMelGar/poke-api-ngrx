@@ -29,8 +29,6 @@ export class PkmnDetailsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loading$ = this.store.select(selectPkmnLoading); //true, false
-
     this.spinner.show();
 
     this.route.params.pipe(takeUntil(this.unsubscribe$)).subscribe((params) => {
